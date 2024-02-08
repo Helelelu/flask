@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://icons8.com/">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <title>Login Page</title>
+</head>
+<body>
+
+    <div class="main-content">
+        <div class="panels-container">
+            <div class="left-panel">
+                <div class="left-card">
+                    <h1 class="login">Log <span class="in"> In </span></h1>
+                    <form method="post" action="../php/login.php">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                
+                        <button type="submit">
+                            CONTINUE
+                            <img class="continue-btn" src="../img/continue btn.png" alt="Icon description">
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="right-panel">
+                <div class="right-card">
+                    <h2 class="text-left-intro">WELCOME!</h2>
+                    <p class="text-left">Unlock your potential in<br>
+                        Computer Engineering today!</p>
+                </div>
+                <div class="logo-container">
+                    <img src="../img/logo1.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+
+<footer>
+    <div class="footer-container">
+        <a href="#home" onclick="redirectToHome()">Home</a>
+        <a href="#contact" onclick="redirectToContact()">Contact</a>
+        <a href="#faq" onclick="redirectToFAQ()">FAQ</a>
+        <a href="#help" onclick="redirectToHelp()">Help</a>
+        <a href="#terms" onclick="redirectToTermsandConditions()">Terms and Conditions</a>
+        <a href="#privacy" onclick="redirectToPrivacyandPolicy()">Privacy and Policy</a>
+    </div>
+    <div class="copyright">
+        &copy; 2023 White Owl Corp. All rights reserved.
+    </div>
+</footer>
+
+<script src="../script/script.js"></script>
+
+</body>
+</html>

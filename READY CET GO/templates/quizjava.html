@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/general.css">  
+    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/sidebar-expand.css">
+    <link rel="stylesheet" href="styles/quiz.css">  
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* h3 {
+  font-size: 24px;
+  color: #333;
+} */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #C35CA3;
+}
+
+    </style>
+</head>
+<body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="../header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="../img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../profile/edit.html">Edit Profile</a>
+          <a href="../profile/pass.html">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../log in- signup page/login.html";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div> 
+    <nav class="side-bar">
+        <a href="../home/home.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            </div>
+        </a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+        </div>
+
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+        </div>
+        
+        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/sign-out.png">
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/help.png">
+            </div>
+        </a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="../home/home.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <a href="../activities/activity-homepage.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/help.png">
+                <h2 class="menu-text">Help</h2>
+            </div>
+        </a>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+
+    <div class="activities-container">
+       
+        <div class="ac-header">
+            <h1>ACTIVITY - HTML For Beginners</h1>
+            <h3 class="ques">Questions: 10</h3>
+            <hr>
+
+            <div class="instructions">
+                <h2 class="instr">Instructions: </h2>
+                <h2 class="instr2">Test your knowledge with Ready CET Go!’s basic quiz made especially for beginners in HTML..</h2>
+                <h2 class="instr2">The test contains 10 questions and there is no time limit. The test is not official. It's just a nice way to see how much you
+                    know about HTML.</h2>
+                <h2 class="instr2">You will get 2 points for each  . There are 10 questions in total.</h2>
+                <h2 class="instr2">Goodluck and padayon to our Computer Engineer! </h2>
+                <hr>
+            </div>
+
+            <div class="questions">
+
+<br>
+                <div class="questions-NQB" id="50:295">
+                    <div class="group-17-nio" id="50:296">
+                    <p class="what-is-a-correct-syntax-to-output-hello-world-in-java-95V" id="50:297">What is a correct syntax to output &#34;Hello World&#34; in Java?</p>
+                    <div class="auto-group-tk63-CJf" id="TTc8iA3ARN86JZNK5WtK63">
+                    <div class="group-28-699" id="50:299">
+                    <div class="ellipse-48-BgP" id="50:300"></div>
+                    <div class="ellipse-49-Vh5" id="50:301"></div>
+                    <div class="ellipse-50-doH" id="50:302"></div>
+                    </div>
+                    <p class="print-hello-world-consolewritelinehello-world-systemoutprintlnhello-world-ksu" id="50:298">
+                    print (&#34;Hello World&#34;);
+                    
+                    <br/>
+                    Console.WriteLine(&#34;Hello World&#34;);
+                    
+                    <br/>
+                    System.out.println(&#34;Hello World&#34;)
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-18-dRu" id="50:303">
+                    <p class="which-data-type-is-used-to-create-a-variable-that-should-store-text-NeP" id="50:304">Which data type is used to create a variable that should store text?</p>
+                    <div class="auto-group-jfzd-UhR" id="TTc97PsSbPmYqk6qeKjfZD">
+                    <div class="group-28-y8P" id="50:306">
+                    <div class="ellipse-48-fmu" id="50:307"></div>
+                    <div class="ellipse-49-QjV" id="50:308"></div>
+                    <div class="ellipse-50-8Qb" id="50:309"></div>
+                    </div>
+                    <p class="mystring-string-string-GWo" id="50:305">
+                    myString
+                    
+                    <br/>
+                    string
+                    
+                    <br/>
+                    String
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-19-zhh" id="50:310">
+                    <p class="how-do-you-create-a-variable-with-the-numeric-value-5-YDR" id="50:311">How do you create a variable with the numeric value 5?</p>
+                    <div class="auto-group-khvu-rE7" id="TTc9P461wfRtPMpBCckhVu">
+                    <div class="group-28-mby" id="50:313">
+                    <div class="ellipse-48-giw" id="50:314"></div>
+                    <div class="ellipse-49-EVZ" id="50:315"></div>
+                    <div class="ellipse-50-Au1" id="50:316"></div>
+                    </div>
+                    <p class="num-x-5-x-5-int-x-5-6Xm" id="50:312">
+                    num x = 5
+                    
+                    <br/>
+                    x = 5;
+                    
+                    <br/>
+                    int x = 5;
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-20-RK9" id="50:317">
+                    <p class="how-do-you-create-a-variable-with-the-floating-number-28-ZAT" id="50:318">How do you create a variable with the floating number 2.8?</p>
+                    <div class="auto-group-wywx-gF5" id="TTc9ddW4by6MDcEmkqWYWX">
+                    <div class="group-28-QRy" id="50:320">
+                    <div class="ellipse-48-7bH" id="50:321"></div>
+                    <div class="ellipse-49-er7" id="50:322"></div>
+                    <div class="ellipse-50-1As" id="50:323"></div>
+                    </div>
+                    <p class="int-x-28f-float-x-28f-byte-x-28f-Lyq" id="50:319">
+                    int x = 2.8f;
+                    
+                    <br/>
+                    float x = 2.8f;
+                    
+                    <br/>
+                    byte x = 2.8f
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-21-ezX" id="50:324">
+                    <p class="the-value-of-a-string-variable-can-be-surrounded-by-single-quotes-osR" id="50:325">The value of a string variable can be surrounded by single quotes.</p>
+                    <div class="auto-group-pbpp-izP" id="TTc9tNaVqBzBEgZ2A9PBpP">
+                    <div class="group-28-qp7" id="50:327">
+                    <div class="ellipse-48-N3M" id="50:328"></div>
+                    <div class="ellipse-49-Vtf" id="50:329"></div>
+                    </div>
+                    <p class="true-false-eFm" id="50:326">
+                    True
+                    
+                    <br/>
+                    False
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-22-n75" id="50:330">
+                    <p class="which-statement-is-used-to-stop-a-loop-Y6F" id="50:331">Which statement is used to stop a loop?</p>
+                    <div class="auto-group-ndrv-e9H" id="TTcA9HKKdL7NSakvQYNdRV">
+                    <div class="group-28-kCK" id="50:333">
+                    <div class="ellipse-48-TsR" id="50:334"></div>
+                    <div class="ellipse-49-1P9" id="50:335"></div>
+                    <div class="ellipse-50-LwD" id="50:336"></div>
+                    </div>
+                    <p class="stop-break-return-tSw" id="50:332">
+                    stop
+                    
+                    <br/>
+                    break
+                    
+                    <br/>
+                    return
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-23-cdq" id="50:337">
+                    <p class="how-do-you-start-writing-a-while-loop-in-java-mWj" id="50:338">How do you start writing a while loop in Java?</p>
+                    <div class="auto-group-8us7-Vhd" id="TTcAPrjNHdmqGqBWxm8US7">
+                    <div class="group-28-1AB" id="50:340">
+                    <div class="ellipse-48-JQB" id="50:341"></div>
+                    <div class="ellipse-49-SWP" id="50:342"></div>
+                    <div class="ellipse-50-a6o" id="50:343"></div>
+                    </div>
+                    <p class="while-x-y-x-y-while-while-x-y-6qq" id="50:339">
+                    while x &gt; y:
+                    
+                    <br/>
+                    x &gt; y while {
+                    
+                    <br/>
+                    while (x &gt; y)
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-24-pWw" id="50:344">
+                    <p class="how-do-you-start-writing-an-if-statement-in-java-NoM" id="50:345">How do you start writing an if statement in Java?</p>
+                    <div class="auto-group-kvj7-hqd" id="TTcAeMKDfUpcWffHbSKvJ7">
+                    <div class="group-28-dUP" id="50:347">
+                    <div class="ellipse-48-LNo" id="50:348"></div>
+                    <div class="ellipse-49-stX" id="50:349"></div>
+                    <div class="ellipse-50-d71" id="50:350"></div>
+                    </div>
+                    <p class="if-x-y-then-if-x-y-if-x-y--Acj" id="50:346">
+                    if x &gt; y then:
+                    
+                    <br/>
+                    if (x &gt; y)
+                    
+                    <br/>
+                    if x &gt; y:
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-25-Vf1" id="50:351">
+                    <p class="which-method-can-be-used-to-find-the-highest-value-of-x-and-y-Sq9" id="50:352">Which method can be used to find the highest value of x and y?</p>
+                    <div class="auto-group-zzm5-Zes" id="TTcAuWYdJznrVohfcTzZM5">
+                    <div class="group-28-Has" id="50:354">
+                    <div class="ellipse-48-c7M" id="50:355"></div>
+                    <div class="ellipse-49-wvK" id="50:356"></div>
+                    <div class="ellipse-50-VS3" id="50:357"></div>
+                    </div>
+                    <p class="mathmaxxy-mathmaxnumxy-mathmaximumxy-S6P" id="50:353">
+                    Math.max(x,y)
+                    
+                    <br/>
+                    Math.maxNum(x,y)
+                    
+                    <br/>
+                    Math.maximum(x,y)
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-26-8zo" id="50:358">
+                    <p class="how-do-you-create-a-method-in-java-tj5" id="50:359">How do you create a method in Java?</p>
+                    <div class="auto-group-yq6o-E2F" id="TTcBAW7ePbXjJ7rPnQYQ6o">
+                    <div class="group-28-9uu" id="50:361">
+                    <div class="ellipse-48-HFR" id="50:362"></div>
+                    <div class="ellipse-49-pm9" id="50:363"></div>
+                    <div class="ellipse-50-aEX" id="50:364"></div>
+                    </div>
+                    <p class="methodname-methodname-methodname-irX" id="50:360">
+                    methodName.
+                    
+                    <br/>
+                    methodName()
+                    
+                    <br/>
+                    (methodName)
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-27-FrT" id="50:365">Submit</div>
+                    </div>
+
+                    <a href="activity-homepage.html">
+                    <div class="Submit" id="48:73">
+                        <div class="blue-rectangle">
+                          <p>Submit</p>
+                        </div>
+                      
+                      </div>
+                
+                </a>
+
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+            </div>
+    
+        
+    
+
+        </div>
+      
+    </div>
+   
+    
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

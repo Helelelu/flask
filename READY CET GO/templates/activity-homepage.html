@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/general.css">  
+    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/sidebar-expand.css">
+    <link rel="stylesheet" href="styles/activity-homepage.css">  
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* h3 {
+  font-size: 24px;
+  color: #333;
+} */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #C35CA3;
+}
+
+    </style>
+</head>
+<body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="../header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="../img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../profile/edit.html">Edit Profile</a>
+          <a href="../profile/pass.html">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../log in- signup page/login.html";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div> 
+    <nav class="side-bar">
+        <a href="../home/home.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            </div>
+        </a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+        </div>
+
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+        </div>
+        
+        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/sign-out.png">
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/help.png">
+            </div>
+        </a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="../home/home.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <a href="../activities/activity-homepage.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/help.png">
+                <h2 class="menu-text">Help</h2>
+            </div>
+        </a>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+
+    <div class="activities-container">
+       
+        <div class="ac-header">
+        <h1>ACTIVITIES</h1>
+        <hr>
+        </div>
+
+        <div class="ac-subject-container">
+            <a href="act-html1.html">
+            <div class="sub-con">
+                <img class="act-pic" src="act-homepage-img/HTML 1.png">
+                <h1 class="name-con">HTML for Beginners</h1>
+            </div></a>
+
+            <a href="act-css1.html">
+            <div class="sub-con">
+                <img class="act-pic" src="act-homepage-img/CSS 1.png">
+                <h1 class="name-con">CSS for Beginners</h1>
+            </div></a>
+
+            <a href="act-js1.html">
+            <div class="sub-con">
+                <img class="act-pic" src="act-homepage-img/JavaScript 1.png">
+                <h1 class="name-con">JavaScript for Beginners</h1>
+            </div></a>
+
+        </div>
+
+        <div class="ac-subject-container">
+            <a href="act-py1.html">
+            <div class="sub-con">
+                <img class="act-pic" src="act-homepage-img/Python 1.png">
+                <h1 class="name-con">Python: Basic for Starters</h1>
+            </div></a>
+
+            <a href="act-java1.html">
+            <div class="sub-con">
+                <img class="act-pic" src="act-homepage-img/Java 1.png">
+                <h1 class="name-con">Java: Basic for Starters</h1>
+            </div></a>
+        </div>
+
+
+
+
+
+    </div>
+   
+    
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/general.css">  
+    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/sidebar-expand.css">
+    <link rel="stylesheet" href="styles/quiz.css">  
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* h3 {
+  font-size: 24px;
+  color: #333;
+} */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #C35CA3;
+}
+
+    </style>
+</head>
+<body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="../header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="../img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../profile/edit.html">Edit Profile</a>
+          <a href="../profile/pass.html">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../log in- signup page/login.html";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div> 
+    <nav class="side-bar">
+        <a href="../home/home.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            </div>
+        </a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+        </div>
+
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+        </div>
+        
+        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/sign-out.png">
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/help.png">
+            </div>
+        </a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="../home/home.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <a href="../activities/activity-homepage.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/help.png">
+                <h2 class="menu-text">Help</h2>
+            </div>
+        </a>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+
+    <div class="activities-container">
+       
+        <div class="ac-header">
+            <h1>ACTIVITY - HTML For Beginners</h1>
+            <h3 class="ques">Questions: 10</h3>
+            <hr>
+
+            <div class="instructions">
+                <h2 class="instr">Instructions: </h2>
+                <h2 class="instr2">Test your knowledge with Ready CET Go!’s basic quiz made especially for beginners in HTML..</h2>
+                <h2 class="instr2">The test contains 10 questions and there is no time limit. The test is not official. It's just a nice way to see how much you
+                    know about HTML.</h2>
+                <h2 class="instr2">You will get 2 points for each  . There are 10 questions in total.</h2>
+                <h2 class="instr2">Goodluck and padayon to our Computer Engineer! </h2>
+                <hr>
+            </div>
+
+            <div class="questions">
+               
+                <br>
+
+                <div class="questions-Aod" id="50:222">
+                    <div class="group-17-nq1" id="50:223">
+                    <p class="what-is-a-correct-syntax-to-output-hello-world-in-python-xFd" id="50:224">What is a correct syntax to output &#34;Hello World&#34; in Python?</p>
+                    <div class="auto-group-zq1h-mD5" id="HSvNzL8e6HXJBT5k4szQ1H">
+                    <div class="group-28-dm5" id="50:226">
+                    <div class="ellipse-48-w15" id="50:227"></div>
+                    <div class="ellipse-49-r83" id="50:228"></div>
+                    <div class="ellipse-50-nnP" id="50:229"></div>
+                    </div>
+                    <p class="echohello-world-printhello-world-echo-hello-world-7pf" id="50:225">
+                    echo(&#34;Hello World&#34;);
+                    
+                    <br/>
+                    print(&#34;Hello World&#34;)
+                    
+                    <br/>
+                    echo &#34;Hello World&#34;
+                    
+                    </p>
+                    </div>
+                    </div>  <br>
+                    <div class="group-18-d2K" id="50:230">
+                    <p class="which-one-is-not-a-legal-variable-name-ksd" id="50:231">Which one is NOT a legal variable name?</p>
+                    <div class="auto-group-za4b-gWP" id="HSvPMerSjm24595GQAza4B">
+                    <div class="group-28-QSP" id="50:233">
+                    <div class="ellipse-48-iT5" id="50:234"></div>
+                    <div class="ellipse-49-qGo" id="50:235"></div>
+                    <div class="ellipse-50-A4B" id="50:236"></div>
+                    </div>
+                    <p class="myvar-my-var-myvar-Vs9" id="50:232">
+                    my_var
+                    
+                    <br/>
+                    my-var
+                    
+                    <br/>
+                    _myvar
+                    
+                    </p>
+                    </div>
+                    </div>  <br>
+                    <div class="group-19-zZ1" id="50:237">
+                    <p class="what-is-the-correct-file-extension-for-python-files-Lcs" id="50:238">What is the correct file extension for Python files?</p>
+                    <div class="auto-group-sdn3-435" id="HSvPcPvsxyut6DPWoUsDN3">
+                    <div class="group-28-mTH" id="50:240">
+                    <div class="ellipse-48-smD" id="50:241"></div>
+                    <div class="ellipse-49-RGw" id="50:242"></div>
+                    <div class="ellipse-50-xnf" id="50:243"></div>
+                    </div>
+                    <p class="pyth-pyt-py-hkF" id="50:239">
+                    .pyth
+                    
+                    <br/>
+                    .pyt
+                    
+                    <br/>
+                    .py
+                    
+                    </p>
+                    </div>
+                    </div>  <br>
+                    <div class="group-20-EVH" id="50:244">
+                    <p class="what-is-the-correct-syntax-to-output-the-type-of-a-variable-or-object-in-python-ZXZ" id="50:245">What is the correct syntax to output the type of a variable or object in Python?</p>
+                    <div class="auto-group-ytgp-rmZ" id="HSvPsUL6L3GSUwV4txyTGP">
+                    <div class="group-28-nQK" id="50:247">
+                    <div class="ellipse-48-i35" id="50:248"></div>
+                    <div class="ellipse-49-Szf" id="50:249"></div>
+                    <div class="ellipse-50-Puu" id="50:250"></div>
+                    </div>
+                    <p class="printtypeofx-printtypex-printtypeof-x-LKM" id="50:246">
+                    print(typeof(x))
+                    
+                    <br/>
+                    print(type(x))
+                    
+                    <br/>
+                    print(typeof x)
+                    
+                    </p>
+                    </div>  <br>
+                    </div>
+                    <div class="group-21-3jZ" id="50:251">
+                    <p class="in-python-hello-is-the-same-as-hello-CsM" id="50:252">In Python, &#39;Hello&#39;, is the same as &#34;Hello&#34;</p>
+                    <div class="auto-group-wjxu-wK9" id="HSvQ7dbAa3rVM8BXqTwJXu">
+                    <div class="group-28-GMR" id="50:254">
+                    <div class="ellipse-48-mZ5" id="50:255"></div>
+                    <div class="ellipse-49-hhd" id="50:256"></div>
+                    </div>
+                    <p class="true-false-drB" id="50:253">
+                    True
+                    
+                    <br/>
+                    False
+                    
+                    </p>
+                    </div>
+                    </div>  <br>
+                    <div class="group-22-Ar7" id="50:257">
+                    <p class="what-is-the-correct-way-to-create-a-function-in-python-vaP" id="50:258">What is the correct way to create a function in Python?</p>
+                    <div class="auto-group-wb5u-T4X" id="HSvQKi5Nib4UNzFLhMwB5u">
+                    <div class="group-28-xX5" id="50:260">
+                    <div class="ellipse-48-s8F" id="50:261"></div>
+                    <div class="ellipse-49-CwD" id="50:262"></div>
+                    <div class="ellipse-50-wdu" id="50:263"></div>
+                    </div>
+                    <p class="create-myfunction-def-myfunction-function-myfunction--grP" id="50:259">
+                    create myFunction():
+                    
+                    <br/>
+                    def myFunction():
+                    
+                    <br/>
+                    function myfunction():
+                    
+                    </p>
+                    </div>  <br>
+                    </div>
+                    <div class="group-23-oAK" id="50:264">
+                    <p class="which-of-these-collections-defines-a-list-9EB" id="50:265">Which of these collections defines a LIST?</p>
+                    <div class="auto-group-h26x-fyD" id="HSvQaHVRNtiwDEfwFah26X">
+                    <div class="group-28-11V" id="50:267">
+                    <div class="ellipse-48-JFV" id="50:268"></div>
+                    <div class="ellipse-49-3D5" id="50:269"></div>
+                    <div class="ellipse-50-BaB" id="50:270"></div>
+                    </div>
+                    <p class="apple-banana-cherry-apple-banana-cherry-name-apple-color-green-um5" id="50:266">
+                    (&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;)
+                    
+                    <br/>
+                    [&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;]
+                    
+                    <br/>
+                    {&#34;name&#34;: &#34;apple&#34;, &#34;color&#34;: &#34;green&#34;}
+                    
+                    </p>
+                    </div>
+                    </div>  <br>
+                    <div class="group-24-obZ" id="50:271">
+                    <p class="which-of-these-collections-defines-a-tuple-kWo" id="50:272">Which of these collections defines a TUPLE?</p>
+                    <div class="auto-group-dgwf-Gzw" id="HSvQpXaguMvffqKE7dDGWf">
+                    <div class="group-28-ojy" id="50:274">
+                    <div class="ellipse-48-8GT" id="50:275"></div>
+                    <div class="ellipse-49-5Bh" id="50:276"></div>
+                    <div class="ellipse-50-pQB" id="50:277"></div>
+                    </div>
+                    <p class="name-apple-color-green-apple-banana-cherry-apple-banana-cherry-xWP" id="50:273">
+                    {&#34;name&#34;: &#34;apple&#34;, &#34;color&#34;: &#34;green&#34;}
+                    
+                    <br/>
+                    [&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;]
+                    
+                    <br/>
+                    (&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;)
+                    
+                    </p>
+                    </div>  <br>
+                    </div>
+                    <div class="group-25-Txw" id="50:278">
+                    <p class="which-of-these-collections-defines-a-set-1zT" id="50:279">Which of these collections defines a SET?</p>
+                    <div class="auto-group-p835-MHd" id="HSvR4Ggnj5SJZxHZSQP835">
+                    <div class="group-28-smm" id="50:281">
+                    <div class="ellipse-48-bhm" id="50:282"></div>
+                    <div class="ellipse-49-8hh" id="50:283"></div>
+                    <div class="ellipse-50-5N3" id="50:284"></div>
+                    </div>
+                    <p class="apple-banana-cherry-apple-banana-cherry-name-apple-color-green-pKd" id="50:280">
+                    {&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;}
+                    
+                    <br/>
+                    (&#34;apple&#34;, &#34;banana&#34;, &#34;cherry&#34;)
+                    
+                    <br/>
+                    {&#34;name&#34;: &#34;apple&#34;, &#34;color&#34;: &#34;green&#34;}
+                    
+                    </p>
+                    </div>
+                    </div>  <br>
+                    <div class="group-26-vNf" id="50:285">
+                    <p class="which-method-can-be-used-to-remove-any-whitespace-from-both-the-beginning-and-the-end-of-a-string-UQB" id="50:286">Which method can be used to remove any whitespace from both the beginning and the end of a string?</p>
+                    <div class="auto-group-tmbq-Mym" id="HSvRJbcFY1FicxsgDzTmbq">
+                    <div class="group-28-tTu" id="50:288">
+                    <div class="ellipse-48-Qx3" id="50:289"></div>
+                    <div class="ellipse-49-m1u" id="50:290"></div>
+                    <div class="ellipse-50-WEP" id="50:291"></div>
+                    </div>
+                    <p class="len-trim-strip-3k7" id="50:287">
+                    len()
+                    
+                    <br/>
+                    trim()
+                    
+                    <br/>
+                    strip()
+                    
+                    </p>
+                    </div>  <br>
+                    </div>
+
+                    <a href="activity-homepage.html">
+                    <div class="Submit" id="48:73">
+                        <div class="blue-rectangle">
+                          <p>Submit</p>
+                        </div>
+                      
+                      </div>
+                
+                </a>
+
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+            </div>
+    
+        
+    
+
+        </div>
+      
+    </div>
+   
+    
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

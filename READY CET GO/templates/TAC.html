@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Terrms and Conditions</title>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}"> 
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'TAC.css')}}">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+      .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  /* Dropdown Styles */
+  .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    margin-top: 13em;
+    border-radius: 20px;
+  }
+
+  .profile:hover .dropdown {
+    display: block;
+  }
+
+  .dropdown a {
+    color: #333;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown a:hover {
+    background-color: #C35CA3;
+    color:white;
+    border-radius: 20px;
+  }
+  .edit-profile-container {
+max-width: 700px;
+margin: 0 auto;
+background-color: #fff;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+h3 {
+font-size: 24px;
+color: #333;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+margin-bottom: 20px;
+}
+
+.image-upload label {
+display: block;
+margin-bottom: 8px;
+color: #555;
+font-size: 12px;
+}
+
+.image-upload input {
+display: block;
+width: 100%;
+padding: 10px;
+font-size: 14px;
+border: 1px solid #ddd;
+border-radius: 3em;
+box-sizing: border-box;
+margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+display: block;
+margin-bottom: 8px;
+color: #555;
+font-size: 12px;
+}
+
+input {
+width: 100%;
+padding: 14px;
+font-size: 16px;
+border: none;
+background-color: #ededed;
+border-radius: 3em;
+box-sizing: border-box;
+}
+
+button {
+background-color: #B88CB1;
+color: white;
+width: 100%;
+padding: 14px 20px;
+border: none;
+border-radius: 3em;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+button:hover {
+background-color: #C35CA3;
+}
+
+  </style>
+</head>
+<body>
+  <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+  <div class="header">
+      <div class="left-section">
+          <i class="ri-menu-line menu-toggle" ></i>
+      </div>
+      <div class="middle-section">
+          <img class="header-logo" src="static/img/wo-logo.png">
+          <h1 class="header-text" >READY</h1>
+          <h1 class="span-header">CET</h1>
+          <h1 class="header-text">GO</h1>
+      </div>
+      <div class="profile" onclick="toggleDropdown()">
+      <img src="static/img/RONALYN.png" alt="Profile Picture">
+      <div class="dropdown">
+        <a href="{{ url_for('profile')}}">Profile</a>
+        <a href="{{ url_for('edit')}}">Edit Profile</a>
+        <a href="{{ url_for('password')}}">Reset Password</a>
+        <a href="#">Calendar</a>
+        <a href="#" id="logoutLink">Logout</a>
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              const logoutLink = document.getElementById("logoutLink");
+
+              logoutLink.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                
+                Swal.fire({
+                  title: 'Are you sure you want to logout?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Yes, logout',
+                  cancelButtonText: 'Cancel'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = "{{ url_for('login')}}";
+                  }
+                });
+              });
+            });
+          </script>
+      </div>
+    </div>
+  </div>
+  <nav class="side-bar">
+      <a href="{{ url_for('home')}}">
+          <div class="sidebar-menu">
+              <img class="menu-icon" src="static/img/home.png">
+          </div>
+      </a>
+      <a href="{{ url_for('courses')}}">
+          <div class="sidebar-menu">
+              <img class="menu-icon" src="static/img/courses-catalog.png">
+          </div>
+      </a>
+      <a href="{{ url_for('mycourses')}}">
+        <div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/my-courses.png">
+        </div>
+      </a>
+
+      <a href="{{url_for('dashboard')}}">
+        <div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/dashboard.png">
+        </div>
+      </a>
+      
+      <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/activities.png">
+      </div></a>
+      <div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/sign-out.png">
+      </div>
+      <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/help.png">
+      </div></a>
+  </nav>
+  <nav class="sidebar-expand">
+      <a href="{{ url_for('home')}}">
+          <div class="exp-sidebar-menu">
+              <img class="menu-icon" src="static/img/home.png">
+              <h2 class="menu-text">Home</h2>
+          </div>
+      </a>
+      <a href="{{ url_for('courses')}}">
+          <div class="exp-sidebar-menu">
+              <img class="exp-menu-icon" src="static/img/courses-catalog.png">
+              <h2 class="menu-text">Courses Catalog</h2>
+          </div>
+      </a>
+      <a href="{{ url_for('mycourses')}}">
+        <div class="exp-sidebar-menu">
+          <img class="menu-icon" src="static/img/my-courses.png">
+          <h2 class="menu-text">My Courses</h2>
+        </div>
+      </a>
+      <a href="{{ url_for('dashboard')}}">
+        <div class="exp-sidebar-menu">
+          <img class="exp-menu-icon" src="static/img/dashboard.png">
+          <h2 class="menu-text">Dashboard</h2>
+        </div>
+      </a>
+      <a href="{{ url_for('activities')}}">
+          <div class="exp-sidebar-menu">
+              <img class="menu-icon" src="static/img/activities.png">
+              <h2 class="menu-text">Activities</h2>
+          </div></a>
+      <div class="exp-sidebar-menu">
+          <img class="exp-menu-icon" src="static/img/sign-out.png">
+          <h2 class="menu-text">Sign Out</h2>
+      </div>
+      <a href="{{ url_for('help')}}">
+        <div class="exp-sidebar-menu">
+          <img class="exp-menu-icon" src="static/img/help.png">
+          <h2 class="menu-text">Help</h2>
+      </div>
+      </a>
+
+  </nav>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+    <h2 class="title">TERMS AND CONDITIONS</h2>
+    <h3 class="date">Effective Date: November. 1, 2023</h3>
+</div>
+
+<div id="rcorners1">
+    <p class="text">1. Acceptance of Terms
+        By accessing and using White Owl Corp's Educational Platform, you agree to be bound by these Terms and Conditions. 
+        If you do not agree to these terms, please do not use our platform.</p>
+</div>
+<div id="rcorners2">
+    <p class="white">2. Use of Content<br>
+        2.1. All content on our platform is for educational purposes only. You may use the content for personal, non-commercial use.<br>
+        2.2. You may not modify, reproduce, or distribute any content from our platform without prior written consent.</p>
+</div>
+<div id="rcorners3">
+    <p class="text">3. User Accounts<br>
+        3.1. To access certain features of our platform, you may be required to create a user account.<br>
+        3.2. You are responsible for maintaining the confidentiality of your account information and agree to be held responsible for all activities that occur under your account.</p>
+</div>
+<div id="rcorners4">
+    <p class="text">4. Community Guidelines<br>
+        4.1. We encourage respectful and constructive interactions within our platform's community. Any form of harassment, hate speech, or inappropriate behavior will not be tolerated.<br>
+        4.2. Users are responsible for the content they post on our platform, and any violations of these guidelines may result in the removal of content or suspension of accounts.</p>
+</div>
+<div id="rcorners5">
+    <p class="text">5. Privacy<br>
+        5.1. White Owl Corp is committed to safeguarding your privacy. We collect and process personal information in accordance with our Privacy Policy, as required by the laws of the Philippines.</p>
+</div>
+<div id="rcorners6">
+    <p class="white">6. Disclaimers<br>
+        6.1. Our platform provides educational content, but we do not guarantee the accuracy, completeness, or suitability of the information for your specific needs.<br>
+        6.2. We are not responsible for any errors, omissions, or actions taken based on the information available on our platform.</p>
+</div>
+<div id="rcorners7">
+    <p class="text">7. Termination <br>
+        7.1. We reserve the right to terminate or suspend your account or access to our platform at our discretion, without notice, for any reason.</p>
+</div>
+<div id="rcorners8">
+    <p class="text">8. Changes to Terms and Conditions<br>
+        8.1. White Owl Corp may update or modify these Terms and Conditions at any time. We will notify users of any changes, and continued use of our platform implies acceptance of the revised terms.</p>
+</div>
+<div id="rcorners9">
+    <p class="text">9. Governing Law<br>
+        9.1. These Terms and Conditions are governed by the laws of the Republic of the Philippines and are subject to the exclusive jurisdiction of its courts.</p>
+</div>
+
+
+<script>
+    function goBack() {
+        // Implement the logic to go back
+        window.history.back();
+    }
+
+    function redirectToHome() {
+        // Implement the logic to redirect to the home page
+        window.location.href = "{{ url_for('home')}}";
+    }
+</script>
+
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

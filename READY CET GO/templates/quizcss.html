@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/general.css">  
+    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/sidebar-expand.css">
+    <link rel="stylesheet" href="styles/quiz.css">  
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* h3 {
+  font-size: 24px;
+  color: #333;
+} */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #C35CA3;
+}
+
+    </style>
+</head>
+<body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="../header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="../img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../profile/edit.html">Edit Profile</a>
+          <a href="../profile/pass.html">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../log in- signup page/login.html";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div> 
+    <nav class="side-bar">
+        <a href="../home/home.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            </div>
+        </a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+        </div>
+
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+        </div>
+        
+        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/sign-out.png">
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/help.png">
+            </div>
+        </a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="../home/home.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <a href="../activities/activity-homepage.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/help.png">
+                <h2 class="menu-text">Help</h2>
+            </div>
+        </a>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+
+    <div class="activities-container">
+       
+        <div class="ac-header">
+            <h1>ACTIVITY - HTML For Beginners</h1>
+            <h3 class="ques">Questions: 10</h3>
+            <hr>
+
+            <div class="instructions">
+                <h2 class="instr">Instructions: </h2>
+                <h2 class="instr2">Test your knowledge with Ready CET Go!’s basic quiz made especially for beginners in HTML..</h2>
+                <h2 class="instr2">The test contains 10 questions and there is no time limit. The test is not official. It's just a nice way to see how much you
+                    know about HTML.</h2>
+                <h2 class="instr2">You will get 2 points for each  . There are 10 questions in total.</h2>
+                <h2 class="instr2">Goodluck and padayon to our Computer Engineer! </h2>
+                <hr>
+            </div>
+
+            <div class="questions">
+
+                <br>
+                <div class="group-17-pBd" id="49:77">
+                    <p class="what-does-css-stand-for-wGF" id="49:78">What does CSS stand for?</p>
+                    <div class="auto-group-ifym-Auh" id="6StebRAj3bxCgiHUB8ifyM">
+                    <div class="group-28-UvP" id="49:80">
+                    <div class="ellipse-48-xqZ" id="49:81"></div>
+                    <div class="ellipse-49-q2B" id="49:82"></div>
+                    <div class="ellipse-50-xsV" id="49:83"></div>
+                    </div>
+                    <p class="creative-style-sheets-cascading-style-sheets-computer-style-sheets-W8K" id="49:79">
+                    Creative Style Sheets
+                    
+                    <br/>
+                    Cascading Style Sheets
+                    
+                    <br/>
+                    Computer Style Sheets
+                    
+                    <br/>
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-18-CG3" id="49:84">
+                    <p class="what-is-the-correct-html-for-referring-to-an-external-style-sheet-k2f" id="49:85">What is the correct HTML for referring to an external style sheet?</p>
+                    <div class="auto-group-3ddv-Sw5" id="6Stf1KeZVJX7yCac8J3DdV">
+                    <div class="group-28-Mo9" id="49:87">
+                    <div class="ellipse-48-Ucs" id="49:88"></div>
+                    <div class="ellipse-49-pAw" id="49:89"></div>
+                    <div class="ellipse-50-Mgf" id="49:90"></div>
+                    </div>
+                    <p class="stylesheetmystylecss-stylesheet-link-relstylesheet-typetext-css-hrefmystylecss-style-srcmystylecss-hEj" id="49:86">
+                    &lt;stylesheet&gt;mystyle.css&lt;/stylesheet&gt;
+                    
+                    <br/>
+                    &lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;mystyle.css&#34;&gt;
+                    
+                    <br/>
+                    &lt;style src=&#34;mystyle.css&#34;&gt;
+                    
+                    </p>
+                    </div>
+                    </div>
+                    </div><br>
+
+                    <div class="group-19-Znj" id="49:91">
+                    <p class="where-in-an-html-document-is-the-correct-place-to-refer-to-an-external-style-sheet-WT5" id="49:92">Where in an HTML document is the correct place to refer to an external style sheet?</p>
+
+                    <p class="in-the-body-section-at-the-end-of-the-document-in-the-head-section-SdZ" id="49:93">
+                    In the &lt;body&gt; section
+                    
+                    <br/>
+                    At the end of the document
+                    
+                    <br/>
+                    In the &lt;head&gt; section
+                    
+                    </p>
+                    </div><br>
+                    <div class="auto-group-wtgw-Xf1" id="6StfGpCkGex6KzQHqVwTGw">
+                    <div class="group-20-rSP" id="49:98">
+                    <p class="which-html-tag-is-used-to-define-an-internal-style-sheet-CFM" id="49:99">Which HTML tag is used to define an internal style sheet?</p>
+                    <div class="auto-group-cxgo-X2j" id="6StfV9BYGa1896JaU2cXGo">
+                    <div class="group-28-r51" id="49:101">
+                    <div class="ellipse-48-mhm" id="49:102"></div>
+                    <div class="ellipse-49-Jxb" id="49:103"></div>
+                    <div class="ellipse-50-Fcw" id="49:104"></div>
+                    </div>
+                    <p class="style-script-css-nsm" id="49:100">
+                    &lt;style&gt;
+                    
+                    <br/>
+                    &lt;script&gt;
+                    
+                    <br/>
+                    &lt;css&gt;
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-21-vDH" id="49:105">
+                    <p class="which-is-the-correct-css-syntax-seK" id="49:106">Which is the correct CSS syntax?</p>
+                    <div class="auto-group-anyk-c67" id="6StfjJScWabB1H13QXaNYK">
+                    <div class="group-28-KWK" id="49:108">
+                    <div class="ellipse-48-RpF" id="49:109"></div>
+                    <div class="ellipse-49-Mxo" id="49:110"></div>
+                    </div>
+                    <p class="body-colorblack-body-color-black-uUX" id="49:107">
+                    body:color=black;
+                    
+                    <br/>
+                    body {color: black;}
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-22-dQX" id="49:111">
+                    <p class="how-do-you-insert-a-comment-in-a-css-file-BB9" id="49:112">How do you insert a comment in a CSS file?</p>
+                    <div class="auto-group-tbkf-ucw" id="6Stg2nwU6wnXbyWZGntBkf">
+                    <div class="group-28-qmV" id="49:114">
+                    <div class="ellipse-48-kNf" id="49:115"></div>
+                    <div class="ellipse-49-6Bd" id="49:116"></div>
+                    <div class="ellipse-50-dhM" id="49:117"></div>
+                    </div>
+                    <p class="this-is-a-comment-this-is-a-comment-this-is-a-comment--yFR" id="49:113">
+                    &#39; this is a comment
+                    
+                    <br/>
+                    // this is a comment //
+                    
+                    <br/>
+                    /* this is a comment */
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-23-Uhy" id="49:118">
+                    <p class="which-property-is-used-to-change-the-background-color-7kw" id="49:119">Which property is used to change the background color?</p>
+                    <div class="auto-group-p1jh-2N7" id="6StgK2yQSRkeJUqgHtp1jh">
+                    <div class="group-28-9Bq" id="49:121">
+                    <div class="ellipse-48-Fkf" id="49:122"></div>
+                    <div class="ellipse-49-ziF" id="49:123"></div>
+                    <div class="ellipse-50-LGK" id="49:124"></div>
+                    </div>
+                    <p class="background-color-color-bgcolor-Gvf" id="49:120">
+                    background-color
+                    
+                    <br/>
+                    color
+                    
+                    <br/>
+                    bgcolor
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-24-oQo" id="49:125">
+                    <p class="which-property-is-used-to-change-the-left-margin-of-an-element-xHh" id="49:126">Which property is used to change the left margin of an element?</p>
+                    <div class="auto-group-ygqj-Umq" id="6StgYruhYbsxo1kqYDYGQj">
+                    <div class="group-28-brT" id="49:128">
+                    <div class="ellipse-48-XVD" id="49:129"></div>
+                    <div class="ellipse-49-sJB" id="49:130"></div>
+                    <div class="ellipse-50-cFm" id="49:131"></div>
+                    </div>
+                    <p class="indent-margin-left-padding-left-Yv7" id="49:127">
+                    indent
+                    
+                    <br/>
+                    margin-left
+                    
+                    <br/>
+                    padding-left
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-25-G5R" id="49:132">
+                    <p class="how-do-you-group-selectors-pMq" id="49:133">How do you group selectors?</p>
+                    <div class="auto-group-bkdu-kmH" id="6StgnSMQoQAEWJqX1ubKdu">
+                    <div class="group-28-tcb" id="49:135">
+                    <div class="ellipse-48-R6j" id="49:136"></div>
+                    <div class="ellipse-49-AKD" id="49:137"></div>
+                    <div class="ellipse-50-ha3" id="49:138"></div>
+                    </div>
+                    <p class="separate-each-selector-with-a-space-separate-each-selector-with-a-plus-sign-separate-each-selector-with-a-comma-eEP" id="49:134">
+                    Separate each selector with a space
+                    
+                    <br/>
+                    Separate each selector with a plus sign
+                    
+                    <br/>
+                    Separate each selector with a comma
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-26-7tf" id="49:139">
+                    <p class="how-do-you-display-a-border-like-this-the-top-border-10-pixels-the-bottom-border-5-pixels-the-left-border-20-pixels-the-right-border-1pixel-Thd" id="49:140">How do you display a border like this: The top border = 10 pixels. The bottom border = 5 pixels. The left border = 20 pixels. The right border = 1pixel?</p>
+                    <div class="auto-group-fycf-vLK" id="6Sth2mGscKyeZKRdoVfyCf">
+                    <div class="group-28-3vj" id="49:142">
+                    <div class="ellipse-48-Ni7" id="49:143"></div>
+                    <div class="ellipse-49-iGB" id="49:144"></div>
+                    <div class="ellipse-50-4L3" id="49:145"></div>
+                    </div>
+                    <p class="border-width-10px-20px-5px-1px-border-width-10px-1px-5px-20px-border-width-10px-5px-20px-1px-Ch9" id="49:141">
+                    border-width:10px 20px 5px 1px;
+                    
+                    <br/>
+                    border-width:10px 1px 5px 20px;
+                    
+                    <br/>
+                    border-width:10px 5px 20px 1px;
+                    
+                    </p>
+                    </div>
+                    </div>
+                    <br>
+
+                    <a href="activity-homepage.html">
+                    <div class="Submit" id="48:73">
+                        <div class="blue-rectangle">
+                          <p>Submit</p>
+                        </div>
+                      
+                      </div>
+                
+                </a>
+
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+            </div>
+    
+        
+    
+
+        </div>
+      
+    </div>
+   
+    
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

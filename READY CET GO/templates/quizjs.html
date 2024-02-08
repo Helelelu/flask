@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/general.css">  
+    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/sidebar-expand.css"> 
+    <link rel="stylesheet" href="styles/quiz.css">  
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* h3 {
+  font-size: 24px;
+  color: #333;
+} */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #C35CA3;
+}
+
+    </style>
+</head>
+<body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="../header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="../img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../profile/edit.html">Edit Profile</a>
+          <a href="../profile/pass.html">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../log in- signup page/login.html";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div> 
+    <nav class="side-bar">
+        <a href="../home/home.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            </div>
+        </a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+        </div>
+
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+        </div>
+        
+        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/sign-out.png">
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/help.png">
+            </div>
+        </a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="../home/home.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <a href="../activities/activity-homepage.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/help.png">
+                <h2 class="menu-text">Help</h2>
+            </div>
+        </a>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+
+    <div class="activities-container">
+       
+        <div class="ac-header">
+            <h1>ACTIVITY - HTML For Beginners</h1>
+            <h3 class="ques">Questions: 10</h3>
+            <hr>
+
+            <div class="instructions">
+                <h2 class="instr">Instructions: </h2>
+                <h2 class="instr2">Test your knowledge with Ready CET Go!’s basic quiz made especially for beginners in HTML..</h2>
+                <h2 class="instr2">The test contains 10 questions and there is no time limit. The test is not official. It's just a nice way to see how much you
+                    know about HTML.</h2>
+                <h2 class="instr2">You will get 2 points for each  . There are 10 questions in total.</h2>
+                <h2 class="instr2">Goodluck and padayon to our Computer Engineer! </h2>
+                <hr>
+            </div>
+
+            <div class="questions">
+<br>
+
+
+                <div class="questions-wCw" id="50:149">
+                    <div class="group-17-Zk7" id="50:150">
+                    <p class="inside-which-html-element-do-we-put-the-javascript-EDy" id="50:151">Inside which HTML element do we put the JavaScript?</p>
+                    <div class="auto-group-w5qd-h7Z" id="fNNDcar4T9AaZXg4vW5qD">
+                    <div class="group-28-yas" id="50:153">
+                    <div class="ellipse-48-sgF" id="50:154"></div>
+                    <div class="ellipse-49-aaf" id="50:155"></div>
+                    <div class="ellipse-50-7ab" id="50:156"></div>
+                    </div>
+                    <p class="script-scripting-js-Ev7" id="50:152">
+                    &lt;script&gt;
+                    
+                    <br/>
+                    &lt;scripting&gt;
+                    
+                    <br/>
+                    &lt;js&gt;
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-18-LiF" id="50:157">
+                    <p class="where-is-the-correct-place-to-insert-a-javascript-tDy" id="50:158">Where is the correct place to insert a JavaScript?</p>
+                    <div class="auto-group-rusm-n4T" id="fNNYgsQ3Y2VT6ztUXRUsM">
+                    <div class="group-28-76j" id="50:160">
+                    <div class="ellipse-48-cJP" id="50:161"></div>
+                    <div class="ellipse-49-kQb" id="50:162"></div>
+                    <div class="ellipse-50-6DZ" id="50:163"></div>
+                    </div>
+                    <p class="both-the-head-section-and-the-body-section-are-correct-the-body-section-the-head-section-djH" id="50:159">
+                    Both the &lt;head&gt; section and the &lt;body&gt; section are correct
+                    
+                    <br/>
+                    The &lt;body&gt; section
+                    
+                    <br/>
+                    The &lt;head&gt; section
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-19-viP" id="50:164">
+                    <p class="what-is-the-correct-syntax-for-referring-to-an-external-script-called-xxxjs-gSf" id="50:165">What is the correct syntax for referring to an external script called &#34;xxx.js&#34;?</p>
+                    <div class="auto-group-46dq-BeK" id="fNNqvsfnXNoGZfvaA46dq">
+                    <div class="group-28-gqy" id="50:167">
+                    <div class="ellipse-48-ofh" id="50:168"></div>
+                    <div class="ellipse-49-8xs" id="50:169"></div>
+                    <div class="ellipse-50-svT" id="50:170"></div>
+                    </div>
+                    <p class="script-hrefxxxjs-script-srcxxxjs-script-namexxxjs-ct3" id="50:166">
+                    &lt;script href=&#34;xxx.js&#34;&gt;
+                    
+                    <br/>
+                    &lt;script src=&#34;xxx.js&#34;&gt;
+                    
+                    <br/>
+                    &lt;script name=&#34;xxx.js&#34;&gt;
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-20-KGf" id="50:171">
+                    <p class="how-do-you-write-hello-world-in-an-alert-box-4EF" id="50:172">How do you write &#34;Hello World&#34; in an alert box?</p>
+                    <div class="auto-group-dxaf-Nkj" id="fNP5fymcEtSAgeFtwDxAF">
+                    <div class="group-28-JPV" id="50:174">
+                    <div class="ellipse-48-RU7" id="50:175"></div>
+                    <div class="ellipse-49-N8T" id="50:176"></div>
+                    <div class="ellipse-50-WVZ" id="50:177"></div>
+                    </div>
+                    <p class="msgboxhello-world-alerthello-world-msghello-world-Su1" id="50:173">
+                    msgBox(&#34;Hello World&#34;);
+                    
+                    <br/>
+                    alert(&#34;Hello World&#34;);
+                    
+                    <br/>
+                    msg(&#34;Hello World&#34;);
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-21-kuh" id="50:178">
+                    <p class="the-external-javascript-file-must-contain-the-script-tag-6yZ" id="50:179">The external JavaScript file must contain the &lt;script&gt; tag.</p>
+                    <div class="auto-group-pogf-2MR" id="fNPKR5sRxQ54ocbDiPogf">
+                    <div class="group-28-vxb" id="50:181">
+                    <div class="ellipse-48-etb" id="50:182"></div>
+                    <div class="ellipse-49-nE7" id="50:183"></div>
+                    </div>
+                    <p class="false-true-835" id="50:180">
+                    False
+                    
+                    <br/>
+                    True
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-22-rjm" id="50:184">
+                    <p class="how-do-you-create-a-function-in-javascript-CYj" id="50:185">How do you create a function in JavaScript?</p>
+                    <div class="auto-group-zfd5-Xb1" id="fNPZAByFfuhxvavYVZfD5">
+                    <div class="group-28-FX1" id="50:187">
+                    <div class="ellipse-48-yC7" id="50:188"></div>
+                    <div class="ellipse-49-hto" id="50:189"></div>
+                    <div class="ellipse-50-T7H" id="50:190"></div>
+                    </div>
+                    <p class="function-myfunction-function-myfunction-function-myfunction-zN7" id="50:186">
+                    function = myFunction()
+                    
+                    <br/>
+                    function myFunction()
+                    
+                    <br/>
+                    function:myFunction()
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-23-V3y" id="50:191">
+                    <p class="how-does-a-while-loop-start-SE7" id="50:192">How does a WHILE loop start?</p>
+                    <div class="auto-group-y7ky-Afu" id="fNPoEcrDDt5EhLZZSy7Ky">
+                    <div class="group-28-hA3" id="50:194">
+                    <div class="ellipse-48-zuq" id="50:195"></div>
+                    <div class="ellipse-49-waB" id="50:196"></div>
+                    <div class="ellipse-50-H8F" id="50:197"></div>
+                    </div>
+                    <p class="while-i-10-while-i-10-i-while-i-1-to-10-cgK" id="50:193">
+                    while (i &lt;= 10)
+                    
+                    <br/>
+                    while (i &lt;= 10; i++)
+                    
+                    <br/>
+                    while i = 1 to 10
+                    
+                    </p>
+                    </div><br>
+                    </div>
+                    <div class="group-24-vwu" id="50:198">
+                    <p class="how-does-a-for-loop-start-UyR" id="50:199">How does a FOR loop start?</p>
+                    <div class="auto-group-twk1-R7y" id="fNQ5UenYhrBwCfgaYtwK1">
+                    <div class="group-28-YiP" id="50:201">
+                    <div class="ellipse-48-5TR" id="50:202"></div>
+                    <div class="ellipse-49-cy9" id="50:203"></div>
+                    <div class="ellipse-50-m5M" id="50:204"></div>
+                    </div>
+                    <p class="for-i-0-i-5-i-for-i-1-to-5-for-i-5-i-tvf" id="50:200">
+                    for (i = 0; i &lt;= 5; i++)
+                    
+                    <br/>
+                    for i = 1 to 5
+                    
+                    <br/>
+                    for (i &lt;= 5; i++)
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-25-1Eb" id="50:205">
+                    <p class="what-is-the-correct-way-to-write-a-javascript-array-MZM" id="50:206">What is the correct way to write a JavaScript array?</p>
+                    <div class="auto-group-rnax-fa3" id="fNQKdurniSEoPN9X3rnaX">
+                    <div class="group-28-zcK" id="50:208">
+                    <div class="ellipse-48-JN7" id="50:209"></div>
+                    <div class="ellipse-49-SDR" id="50:210"></div>
+                    <div class="ellipse-50-n2P" id="50:211"></div>
+                    </div>
+                    <p class="var-colors-red-green-blue-var-colors-1-red-2-green-3-blue-var-colors-red-green-blue-vPV" id="50:207">
+                    var colors = &#34;red&#34;, &#34;green&#34;, &#34;blue&#34;
+                    
+                    <br/>
+                    var colors = (1:&#34;red&#34;, 2:&#34;green&#34;, 3:&#34;blue&#34;)
+                    
+                    <br/>
+                    var colors = [&#34;red&#34;, &#34;green&#34;, &#34;blue&#34;]
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-26-1Qw" id="50:212">
+                    <p class="what-is-the-correct-javascript-syntax-to-change-the-content-of-the-html-element-below-p-iddemothis-is-a-demonstration-p-m9D" id="50:213">
+                    What is the correct JavaScript syntax to change the content of the HTML element below?
+                    
+                    <br/>
+                    &lt;p id=&#34;demo&#34;&gt;This is a demonstration.&lt;/p&gt;
+                    
+                    </p>
+                    <div class="auto-group-w1cp-EYb" id="fNQco5wFFAs2S6Mh8w1CP">
+                    <div class="group-28-kG3" id="50:215">
+                    <div class="ellipse-48-4Xd" id="50:216"></div>
+                    <div class="ellipse-49-QLb" id="50:217"></div>
+                    <div class="ellipse-50-jtf" id="50:218"></div>
+                    </div>
+                    <p class="documentgetelementbyiddemoinnerhtml-hello-world-documentgetelementpinnerhtml-hello-world-documentgetelementbynamepinnerhtml-hello-world-H9V" id="50:214">
+                    document.getElementById(&#34;demo&#34;).innerHTML = &#34;Hello World!&#34;;
+                    
+                    <br/>
+                    document.getElement(&#34;p&#34;).innerHTML = &#34;Hello World!&#34;;
+                    
+                    <br/>
+                    document.getElementByName(&#34;p&#34;).innerHTML = &#34;Hello World!&#34;;
+                    
+                    </p>
+                    </div>
+                    </div><br>
+
+                    <a href="activity-homepage.html">
+                    <div class="Submit" id="48:73">
+                        <div class="blue-rectangle">
+                          <p>Submit</p>
+                        </div>
+                      
+                      </div>
+                
+                </a>
+
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+            </div>
+    
+        
+    
+
+        </div>
+      
+    </div>
+   
+    
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

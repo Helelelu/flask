@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/general.css">  
+    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/sidebar-expand.css">
+    <link rel="stylesheet" href="styles/quiz.css">  
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* h3 {
+  font-size: 24px;
+  color: #333;
+} */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add this to your existing CSS */
+
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
+
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #C35CA3;
+}
+
+    </style>
+</head>
+<body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="../header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="../img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="../profile/profile.html">Profile</a>
+          <a href="../profile/edit.html">Edit Profile</a>
+          <a href="../profile/pass.html">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "../log in- signup page/login.html";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div> 
+    <nav class="side-bar">
+        <a href="../home/home.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            </div>
+        </a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+        </div>
+
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+        </div>
+        
+        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/sign-out.png">
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/help.png">
+            </div>
+        </a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="../home/home.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="../courses/courses.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <a href="../activities/activity-homepage.html">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="../side-bar-images/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="../navbar-footer/help.html">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="../side-bar-images/help.png">
+                <h2 class="menu-text">Help</h2>
+            </div>
+        </a>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+
+    <div class="activities-container">
+       
+        <div class="ac-header">
+            <h1>ACTIVITY - HTML For Beginners</h1>
+            <h3 class="ques">Questions: 10</h3>
+            <hr>
+
+            <div class="instructions">
+                <h2 class="instr">Instructions: </h2>
+                <h2 class="instr2">Test your knowledge with Ready CET Go!’s basic quiz made especially for beginners in HTML..</h2>
+                <h2 class="instr2">The test contains 10 questions and there is no time limit. The test is not official. It's just a nice way to see how much you
+                    know about HTML.</h2>
+                <h2 class="instr2">You will get 2 points for each  . There are 10 questions in total.</h2>
+                <h2 class="instr2">Goodluck and padayon to our Computer Engineer! </h2>
+                <hr>
+            </div>
+
+            <div class="questions">
+                <div class="questions-svT" id="48:3">
+                    <div class="group-17-heb" id="48:4">
+                    <p class="what-does-html-stand-for-TQo" id="48:5">What does HTML stand for?</p>
+                    <div class="auto-group-jsz3-X9m" id="ESBXa36eYnUqjjTvnjsz3">
+                    <div class="group-28-osy" id="48:7">
+                    <div class="ellipse" id="48:8"></div>
+                    <div class="ellipse" id="48:9"></div>
+                    <div class="ellipse" id="48:10"></div>
+                    </div>
+                    <p class="a-hyper-text-markup-language-b-hot-mail-c-how-to-make-lasagna-Ebu" id="48:6">
+                    A. Hyper Text Markup Language
+                    
+                    <br/>
+                    B. Hot Mail
+                    
+                    <br/>
+                    C. How to Make Lasagna
+                    
+                    </p>
+                    </div>
+                    </div>
+
+                    <br>
+                    <div class="group-18-vjd" id="48:11">
+                    <p class="how-many-tags-are-in-a-regular-element-sum" id="48:12">How many tags are in a regular element?</p>
+                    <div class="auto-group-1ey1-CSF" id="ESBuyZRyzH7So1jGA1Ey1">
+                    <div class="group-28-7ZD" id="48:14">
+                    <div class="ellipse" id="48:15"></div>
+                    <div class="ellipse" id="48:16"></div>
+                    <div class="ellipse" id="48:17"></div>
+                    </div>
+                    <p class="a-2-b-1-c-3-ceP" id="48:13">
+                    A. 2
+                    
+                    <br/>
+                    B. 1
+                    
+                    <br/>
+                    C. 3
+                    
+                    </p>
+                    </div>
+                    <br>
+                    </div>
+                    <div class="group-19-LKV" id="48:18">
+                    <p class="what-is-the-difference-between-an-opening-tag-and-a-closing-tag-tM1" id="48:19">What is the difference between an opening tag and a closing tag?</p>
+                    <div class="auto-group-95cw-1Aj" id="ESCBoSPuBApBEcifY95Cw">
+                    <div class="group-28-Xes" id="48:21">
+                    <div class="ellipse" id="48:22"></div>
+                    <div class="ellipse" id="48:23"></div>
+                    <div class="ellipse" id="48:24"></div>
+                    </div>
+                    <p class="a-opening-tag-has-a-in-front-b-closing-tag-has-a-in-front-c-there-is-no-difference-Exb" id="48:20">
+                    A. Opening tag has a / in front
+                    
+                    <br/>
+                    B. Closing tag has a / in front
+                    
+                    <br/>
+                    C. There is no difference
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-20-j8f" id="48:25">
+                    <p class="br-what-type-of-tag-is-this-TqM" id="48:26">&lt; br / &gt; What type of tag is this?</p>
+                    <div class="auto-group-guxf-PDD" id="ESCSo1QymugyYmSqUguxf">
+                    <div class="group-28-6tK" id="48:28">
+                    <div class="ellipse" id="48:29"></div>
+                    <div class="ellipse" id="48:30"></div>
+                    <div class="ellipse" id="48:31"></div>
+                    </div>
+                    <p class="a-break-tag-b-a-broken-one-c-an-opening-tag-Fej" id="48:27">
+                    A. Break tag
+                    
+                    <br/>
+                    B. A broken one
+                    
+                    <br/>
+                    C. An opening tag
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-21-NjM" id="48:32">
+                    <p class="body-is-this-an-opening-tag-or-a-closing-tag-X6T" id="48:33">&lt; body &gt; Is this an opening tag or a closing tag?</p>
+                    <div class="auto-group-datb-34o" id="ESCgCnjfexbW1xUU5dAtb">
+                    <div class="group-28-A9R" id="48:35">
+                    <div class="ellipse" id="48:36"></div>
+                    <div class="ellipse" id="48:37"></div>
+                    </div>
+                    <p class="a-opening-b-closing-ZxF" id="48:34">
+                    A. Opening
+                    
+                    <br/>
+                    B. Closing
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-22-HNT" id="48:38">
+                    <p class="which-is-the-correct-way-to-tag-an-image-qes" id="48:39">Which is the correct way to tag an image?</p>
+                    <div class="auto-group-6edz-wxo" id="ESCtwvW5s63HBatiL6EdZ">
+                    <div class="group-28-5ZD" id="48:41">
+                    <div class="ellipse-48-niX" id="48:42"></div>
+                    <div class="ellipse-49-LEF" id="48:43"></div>
+                    <div class="ellipse-50-sjy" id="48:44"></div>
+                    </div>
+                    <p class="a-srcimagejpg-gif-alttype-some-text-b-srcimagejpg-gif-alttype-some-text-c-img-srcimagejpg-gif-alttype-some-text-275" id="48:40">
+                    A. src=”image.jpg/gif” alt=”type some text”
+                    
+                    <br/>
+                    B. Src=”image.jpg/gif” alt=type some text”
+                    
+                    <br/>
+                    C. &lt;img src=&#34;image.jpg/gif&#34; alt=&#34;type some text&#34;&gt;
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-23-4pT" id="48:45">
+                    <p class="where-do-all-items-for-the-same-website-need-to-be-saved-cb5" id="48:46">Where do all items for the same website need to be saved?</p>
+                    <div class="auto-group-e5ph-jQo" id="ESD9wVXATpv5VjctGe5PH">
+                    <div class="group-28-Ftw" id="48:48">
+                    <div class="ellipse-48-MBH" id="48:49"></div>
+                    <div class="ellipse-49-5sy" id="48:50"></div>
+                    <div class="ellipse-50-EF5" id="48:51"></div>
+                    </div>
+                    <p class="a-in-the-same-folder-b-where-ever-is-fine-c-in-different-folders-xwm" id="48:47">
+                    A. In the same folder
+                    
+                    <br/>
+                    B. Where ever is fine
+                    
+                    <br/>
+                    C. In different folders
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-24-f5V" id="48:52">
+                    <p class="which-of-the-following-is-an-example-of-an-empty-element-cFd" id="48:53">Which of the following is an example of an empty element?</p>
+                    <div class="auto-group-h8ct-w31" id="ESDPWwERG7BnnpJMxh8cT">
+                    <div class="group-28-3rj" id="48:55">
+                    <div class="ellipse-48-yVV" id="48:56"></div>
+                    <div class="ellipse-49-KZM" id="48:57"></div>
+                    <div class="ellipse-50-s55" id="48:58"></div>
+                    </div>
+                    <p class="a-img-b-img-img-c-img-bWs" id="48:54">
+                    A. &lt; img / &gt;
+                    
+                    <br/>
+                    B. &lt; img &gt; &lt; / img &gt;
+                    
+                    <br/>
+                    C. &lt; / img&gt;
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-25-Wtj" id="48:59">
+                    <p class="what-should-values-always-be-enclosed-in-Gsu" id="48:60">What should values always be enclosed in?</p>
+                    <div class="auto-group-8b4w-QUK" id="ESDeLqrvwchQH5Ngp8B4w">
+                    <div class="group-28-Y4j" id="48:62">
+                    <div class="ellipse-48-4Hy" id="48:63"></div>
+                    <div class="ellipse-49-oWT" id="48:64"></div>
+                    <div class="ellipse-50-8Yj" id="48:65"></div>
+                    </div>
+                    <p class="a-quotation-marks-b-commas-c-parenthesis-Guq" id="48:61">
+                    A. Quotation marks
+                    
+                    <br/>
+                    B. Commas
+                    
+                    <br/>
+                    C. Parenthesis
+                    
+                    </p>
+                    </div>
+                    </div><br>
+                    <div class="group-26-bSK" id="48:66">
+                    <p class="what-does-a-h-r-e-f-h-t-t-p-w-w-w-g-o-o-g-l-e-c-o-m-t-i-t-l-e-l-i-n-k-t-o-g-o-o-g-l-e-t-a-r-g-e-t-b-l-a-n-k-g-o-o-g-l-e-a-do-YsM" id="48:67">What does &lt; a h r e f = ”h t t p : / / w w w . g o o g l e . c o m“ t i t l e = ” L i n k t o G o o g l e ” t a r g e t = ” _ b l a n k ” &gt; G o o g l e &lt; / a &gt; do?</p>
+                    <div class="auto-group-rrjy-PNB" id="ESDtAnA37k1tozXw8rRjy">
+                    <div class="group-28-Jk3" id="48:69">
+                    <div class="ellipse-48-dXR" id="48:70"></div>
+                    <div class="ellipse-49-y5V" id="48:71"></div>
+                    <div class="ellipse-50-i35" id="48:72"></div>
+                    </div>
+                    <p class="a-adds-a-link-to-google-on-the-page-b-adds-a-search-engine-to-the-page-c-nothing-Sjm" id="48:68">
+                    A. Adds a link to google on the page
+                    
+                    <br/>
+                    B. Adds a search engine to the page
+                    
+                    <br/>
+                    C. Nothing
+                    
+                    </p>
+                    </div>
+                    </div><br>
+
+                    <a href="activity-homepage.html">
+                    <div class="Submit" id="48:73">
+                        <div class="blue-rectangle">
+                          <p>Submit</p>
+                        </div>
+                      
+                      </div>
+                
+                </a>
+
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+            </div>
+    
+        
+    
+
+        </div>
+      
+    </div>
+   
+    
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+</script>

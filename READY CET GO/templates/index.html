@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <title>Ready CET go!</title>
+
+</head>
+<body>
+
+<nav>
+    <div class="logo-container">
+        <img src="static/img/logo1.png" alt="Your Logo">
+    </div>
+    <div class="sitename">
+        <span class="site-name">READY<span class="cet-highlight"> CET</span> GO!</span>
+    </div>
+    <div class="nav-container">
+        <a href="#home" onclick="redirectToHome()">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">About</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('history')}}">History</a>
+                <a href="{{ url_for('what_we_do')}}">What We Do</a>
+                <a href="{{ url_for('creators')}}">Creators</a>
+            </div>
+        </div>
+        <a href="#contact">Contact</a>
+        <a href="{{ url_for('faq')}}">FAQ</a>
+        <a href="{{ url_for('help')}}">Help</a>
+    </div>
+    <button class="get-started-btn"  onclick="redirectToGetStarted()">GET STARTED</button>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        &#9776;
+    </a>
+</nav>
+<div class="main-content">
+    <div class="main-text">
+        EMPOWERING FUTURE INNOVATORS <br>
+        THROUGH <br>
+        COMPUTER ENGINEERING EDUCATION
+
+        <p class="subtitle">Unlock your potential in Computer Engineering today!</p>
+    </div>
+    <!-- Rest of your main content goes here -->
+</div>
+
+<footer>
+    <div class="footer-container">
+        <a href="#home" onclick="redirectToHome()">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="{{ url_for('faq')}}">FAQ</a>
+        <a href="{{ url_for('help')}}">Help</a>
+        <a href="{{ url_for('terms')}}">Terms and Conditions</a>
+        <a href="{{ url_for('pap')}}">Privacy Policy</a>
+    </div>
+    <div class="copyright">
+        &copy; 2023 White Owl Corp. All rights reserved.
+    </div>
+</footer>
+<!-- <script src="static/js/script.js"></script> -->
+
+</body>
+</html>

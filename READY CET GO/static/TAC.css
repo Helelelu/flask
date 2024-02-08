@@ -1,0 +1,146 @@
+.button-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+}
+
+.back-btn, .exit-btn {
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer; 
+}
+
+.back-btn {
+    left: 15px;
+}
+
+.exit-btn {
+    right: 15px;
+}
+
+.back-btn img, .exit-btn img {
+    height: 25px;
+    width: 35px;
+}
+
+.title {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: purple; 
+}
+
+.date{
+    font-family: "Orbitron";
+    font-size: 14px;
+    margin-left: 70px;
+}
+
+.text{
+    margin-top: -10px;
+    font-family: "Orbitron";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.white{
+    margin-top: -10px;
+    color: white;
+    font-family: "Orbitron";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#rcorners1 {
+    border-radius: 25px;
+    background: #A35CA3;
+    padding: 20px;
+    width: 900px;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+  #rcorners2 {
+    border-radius: 25px;
+    background: black;
+    padding: 20px;
+    width: 800px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 300px;
+  }
+
+  #rcorners3 {
+    border-radius: 25px;
+    background: #D9D9D9;
+    padding: 20px;
+    width: 900px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+
+  #rcorners4 {
+    border-radius: 25px;
+    background: #CE86B7;
+    padding: 20px;
+    width: 900px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 200px;
+  }
+
+  #rcorners5 {
+    border-radius: 25px;
+    background: #A35CA3;
+    padding: 20px;
+    width: 900px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+
+  #rcorners6 {
+    border-radius: 25px;
+    background: black;
+    padding: 20px;
+    width: 900px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 200px;
+  }
+
+  #rcorners7 {
+    border-radius: 25px;
+    background: #D9D9D9;
+    padding: 20px;
+    width: 900px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+
+  #rcorners8 {
+    border-radius: 25px;
+    background: #CE86B7;
+    padding: 20px;
+    width: 900px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 200px;
+  }
+
+  #rcorners9 {
+    border-radius: 25px;
+    background: #7b7b7b;
+    padding: 20px;
+    width: 900px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-bottom: 15px;
+  }

@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', 'Orbitron', Arial, sans-serif;
+    background-color: #161616;
+}
+
+.main-content {
+    font-family: 'Orbitron';
+    
+}
+
+.panels-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-panel {
+    width: 50%;
+}
+
+.right-panel {
+    width: 50%;
+}
+
+.left-card {
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(135, 74, 135), rgb(0, 0, 0));
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup{
+    margin-left: 50px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.up{
+    color: rgb(0, 0, 0);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-left: 50px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+input {
+    margin-bottom: 30px;
+    margin-left: 50px;
+    width: 50%;
+    outline: none;
+}
+
+input:focus {
+    border-bottom: 5px solid rgb(0, 0, 0);
+}
+
+/* already have an acc css */
+.login{
+    color: white;
+    font-size: 12px;
+    margin-left: 70px;
+}
+
+  h3.login a {
+    color: purple;
+    text-decoration: underline;
+  }
+
+  h3.login a:hover {
+    color: yellow;
+  }
+
+/* Style the submit button */
+button[type="submit"] {
+    display: flex;
+    border: none;
+    font-family: 'Orbitron';
+    background-color:#B88CB1; 
+    color: white; 
+    padding: 10px 20px; 
+    width:50%;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center !important;
+    transition: background-color 0.3s ease; 
+    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button[type="submit"]:hover {
+    background-color: #000000;
+}
+
+.continue-btn{
+    margin-left: 15px;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-card {
+    position: relative;
+    background-image: url("../img/Right\ Panel\ png.png");
+    /* background-size: 100%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    margin-top: -2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.logo-container img {
+    width: 80px;
+    height: auto;
+}
+
+
+.left-panel h2, .right-panel h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.left-panel p, .right-panel p {
+    color: #666;
+}
+
+
+.text-left-intro{
+    color: white !important;
+    align-items: center;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 700;
+}
+
+.text-left{
+    font-size: 25px;
+    color: white !important;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 150px;
+}
+
+/* FOOTER STARTS HERE */
+
+footer {
+    color: white;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #555;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+}
+
+.footer-container a {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.footer-container a:hover {
+    font-weight: bolder;
+    text-decoration: underline;
+    color:purple;
+}
+
+.copyright {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}

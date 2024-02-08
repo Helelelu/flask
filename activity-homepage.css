@@ -1,0 +1,47 @@
+.ac-header{
+    margin-left: 75px;
+    margin-top: 15px;
+    color: black;
+    width: 89%;
+    font-weight: 10;
+    word-wrap: break-word;
+    
+}
+
+.activities-container a{
+    color: black;
+    text-decoration-line: none;
+}
+.ac-header h1{
+    color: black;
+    font-size: 30px;
+    font-weight: 10;
+    word-wrap: break-word;
+}
+
+.ac-subject-container{
+    width: 350px;
+    margin-top: 30px;
+    margin-left: 75px;
+    display: flex;
+    
+}
+
+.act-pic{
+    width: 350px;
+}
+
+.sub-con{
+    margin-right: 50px;
+    box-shadow: 0px 10px 10px gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 350px;
+}
+
+.name-con{
+    font-size: 20px;
+    font-weight: 10;
+    height: 50px;
+    padding-left: 10px;
+}

@@ -1,0 +1,119 @@
+.button-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+}
+
+.back-btn, .exit-btn {
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer; 
+}
+
+.back-btn {
+    left: 15px;
+}
+
+.exit-btn {
+    right: 15px;
+}
+
+.back-btn img, .exit-btn img {
+    height: 25px;
+    width: 35px;
+}
+
+.title {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: purple; 
+}
+.topic{
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.topic1{
+    color: white;
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.text{
+    color: black;
+    margin-top: -10px;
+    font-family: "Orbitron";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.white{
+    margin-top: -10px;
+    color: white;
+    font-family: "Orbitron";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    }
+    
+    .div1 { grid-area: 1 / 2 / 2 / 3; }
+    .div2 { grid-area: 2 / 1 / 3 / 2; }
+    .div3 { grid-area: 1 / 4 / 2 / 5; }
+    .div4 { grid-area: 2 / 3 / 3 / 4; }
+    
+    .parent > div {
+        width: 270px;
+        height: 250px;
+        border-radius: 15%;
+        margin-top: 10px;
+        font-family: "Orbitron";
+    }
+
+    .div1 {
+        height: 200px !important;
+        background-color: #A35CA3;
+        align-items: left;
+        font-weight: 500;
+        justify-content: left;
+        text-align: center;
+    }
+
+    .div2 {
+        height: 180px !important;
+        background-color: black; 
+        align-items: center;
+        font-weight: 500;
+        justify-content: center;
+        text-align: center;
+        margin-left: 30px;
+    }
+    
+    .div3 {
+        height: 180px !important;
+        background-color: #d9d9d9;
+        align-items: center;
+        font-weight: 500;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .div4 {
+        height: 200px !important;
+        background-color: #483248; 
+        align-items: center;
+        font-weight: 500;
+        justify-content: center;
+        text-align: center;
+    }

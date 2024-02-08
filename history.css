@@ -1,0 +1,89 @@
+.button-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+}
+
+.back-btn, .exit-btn {
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer; 
+}
+
+.back-btn {
+    left: 15px;
+}
+
+.exit-btn {
+    right: 15px;
+}
+
+.back-btn img, .exit-btn img {
+    height: 25px;
+    width: 35px;
+}
+
+.title {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: purple; 
+}
+
+.text{
+    margin-top: -10px;
+    font-family: "Orbitron";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.white{
+    color: white;
+    font-family: "Orbitron";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#rcorners1 {
+    border-radius: 25px;
+    background: #A35CA3;
+    padding: 20px;
+    width: 900px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 80px;
+  }
+
+  #rcorners2 {
+    border-radius: 25px;
+    background: black;
+    padding: 20px;
+    width: 900px;
+    height: 70px;
+    margin-top: 16px;
+    margin-left: 200px;
+  }
+
+  #rcorners3 {
+    border-radius: 25px;
+    background: #D9D9D9;
+    padding: 20px;
+    width: 900px;
+    height: 70px;
+    margin-top: 16px;
+    margin-left: 80px;
+  }
+
+  #rcorners4 {
+    border-radius: 25px;
+    background: #CE86B7;
+    padding: 20px;
+    width: 900px;
+    height: 80px;
+    margin-top: 16px;
+    margin-left: 200px;
+  }

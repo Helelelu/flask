@@ -1,0 +1,87 @@
+
+body{
+    background: linear-gradient(to bottom, #ffffff, #8e44ad);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.button-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+}
+
+.back-btn, .exit-btn {
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer; 
+}
+
+.back-btn {
+    left: 15px;
+}
+
+.exit-btn {
+    right: 15px;
+}
+
+.back-btn img, .exit-btn img {
+    height: 25px;
+    width: 35px;
+}
+
+.title {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: purple; 
+}
+
+.name{
+    color: black;
+    font-family: "Orbitron";
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+}
+
+.parent-container {
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    float: left;
+    width: 13%;
+    padding: 50px;
+    margin-top: -20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+}
+
+.column.column:nth-child(5n) {
+    clear: both;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: 100%; 
+}
+

@@ -39,7 +39,7 @@ def coursedetail():
 
 @app.route('/mycourses')
 def mycourses():
-    return render_template('my-courses.html')
+    return render_template('wala-pa.html')
 
 @app.route('/dashboard')
 def dashboard():
@@ -159,25 +159,36 @@ def quizjs():
 def app_dev():
     return render_template('app_dev.html')
 
-@app.route('/java_course')
-def java_course():
-    return render_template('java.html')
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
-@app.route('/javascript_course')
-def javascript_course():
-    return render_template('javascript.html')
+@app.route('/answer_forum')
+def answer_forum():
+    return render_template('answer-forum.html')
 
-@app.route('/html_course')
-def html_course():
-    return render_template('html.html')
 
-@app.route('/css_course')
-def css_course():
-    return render_template('css.html')
 
-@app.route('/python_course')
-def python_course():
-    return render_template('python.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     with app.app_context():

@@ -67,7 +67,7 @@ def pap():
 
 @app.route('/password')
 def password():
-    return render_template('pass.html')
+    return render_template('password.html')
 
 @app.route('/terms')
 def terms():
@@ -87,7 +87,89 @@ def edit():
 
 @app.route('/activities')
 def activities():
-    return render_template('activity-homepage.html')
+    return render_template('activities.html')
+
+@app.route('/act_css1')
+def act_css1():
+    return render_template('act_css1.html')
+
+@app.route('/act_html1')
+def act_html1():
+    return render_template('act_html1.html')
+
+@app.route('/act_jsl1')
+def act_jsl1():
+    return render_template('act_jsl1.html')
+
+@app.route('/act_py1')
+def act_py1():
+    return render_template('act_py1.html')
+
+@app.route('/act_java1')
+def act_java1():
+    return render_template('act_java1.html')
+
+@app.route('/databasemanagement')
+def database():
+    return render_template('database-management.html')
+
+@app.route('/machinelearning')
+def machinelearning():
+    return render_template('machine-learning.html')
+
+
+@app.route('/networkingadministration')
+def networkingadministration():
+    return render_template('network-administation.html')
+
+@app.route('/projectmanagement')
+def projectmanagementn():
+    return render_template('project-management.html')
+
+@app.route('/quizcss')
+def quizcss():
+    return render_template('quizcss.html')
+
+@app.route('/quizhtml')
+def quizhtml():
+    return render_template('quizhtml.html')
+
+@app.route('/quizjava')
+def quizjava():
+    return render_template('quizjava.html')
+
+@app.route('/quizpy')
+def quizpy():
+    return render_template('quizpy.html')
+
+@app.route('/webdev')
+def webdev():
+    return render_template('web-dev.html')
+
+@app.route('/quizjs')
+def quizjs():
+    return render_template('quizjs.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     with app.app_context():

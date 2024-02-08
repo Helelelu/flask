@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>White Owl</title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/general.css">  
-    <link rel="stylesheet" href="../styles/side-bar.css">  
-    <link rel="stylesheet" href="../styles/sidebar-expand.css">
-    <link rel="stylesheet" href="styles/quiz.css">  
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'quiz.css')}}">
 
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -18,246 +18,252 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style type="text/css">
-        .profile {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+      .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
-    .profile img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-      cursor: pointer;
-    }
+  .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+  }
 
-    /* Dropdown Styles */
-    .dropdown {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 300px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-      right: 0;
-      margin-top: 13em;
-      border-radius: 20px;
-    }
+  /* Dropdown Styles */
+  .dropdown {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    margin-top: 13em;
+    border-radius: 20px;
+  }
 
-    .profile:hover .dropdown {
-      display: block;
-    }
+  .profile:hover .dropdown {
+    display: block;
+  }
 
-    .dropdown a {
-      color: #333;
-      padding: 12px;
-      text-decoration: none;
-      display: block;
-    }
+  .dropdown a {
+    color: #333;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+  }
 
-    .dropdown a:hover {
-      background-color: #C35CA3;
-      color:white;
-      border-radius: 20px;
-    }
-    .edit-profile-container {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  .dropdown a:hover {
+    background-color: #C35CA3;
+    color:white;
+    border-radius: 20px;
+  }
+  .edit-profile-container {
+max-width: 700px;
+margin: 0 auto;
+background-color: #fff;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
 }
 
-/* h3 {
-  font-size: 24px;
-  color: #333;
-} */
+h3 {
+font-size: 24px;
+color: #333;
+}
 
 .form-group {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 /* Add this to your existing CSS */
 
 /* Image Upload Styles */
 .image-upload {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 .image-upload label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-  font-size: 12px;
+display: block;
+margin-bottom: 8px;
+color: #555;
+font-size: 12px;
 }
 
 .image-upload input {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 3em;
-  box-sizing: border-box;
-  margin-bottom: 15px;
+display: block;
+width: 100%;
+padding: 10px;
+font-size: 14px;
+border: 1px solid #ddd;
+border-radius: 3em;
+box-sizing: border-box;
+margin-bottom: 15px;
 }
 
 /* Form Styles */
 .form-group {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-  font-size: 12px;
+display: block;
+margin-bottom: 8px;
+color: #555;
+font-size: 12px;
 }
 
 input {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  background-color: #ededed;
-  border-radius: 3em;
-  box-sizing: border-box;
+width: 100%;
+padding: 14px;
+font-size: 16px;
+border: none;
+background-color: #ededed;
+border-radius: 3em;
+box-sizing: border-box;
 }
 
 button {
-  background-color: #B88CB1;
-  color: white;
-  width: 100%;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 3em;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+background-color: #B88CB1;
+color: white;
+width: 100%;
+padding: 14px 20px;
+border: none;
+border-radius: 3em;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #C35CA3;
+background-color: #C35CA3;
 }
 
-    </style>
+  </style>
 </head>
 <body>
-    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
-    <div class="header">
-        <div class="left-section">
-            <i class="ri-menu-line menu-toggle" ></i>
-        </div>
-        <div class="middle-section">
-            <img class="header-logo" src="../header-images/wo-logo.png">
-            <h1 class="header-text" >READY</h1>
-            <h1 class="span-header">CET</h1>
-            <h1 class="header-text">GO</h1>
-        </div>
-        <div class="profile" onclick="toggleDropdown()">
-        <img src="../img/RONALYN.png" alt="Profile Picture">
-        <div class="dropdown">
-          <a href="../profile/profile.html">Profile</a>
-          <a href="../profile/edit.html">Edit Profile</a>
-          <a href="../profile/pass.html">Reset Password</a>
-          <a href="#">Calendar</a>
-          <a href="#" id="logoutLink">Logout</a>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script>
-              document.addEventListener("DOMContentLoaded", function() {
-                const logoutLink = document.getElementById("logoutLink");
+  <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+  <div class="header">
+      <div class="left-section">
+          <i class="ri-menu-line menu-toggle" ></i>
+      </div>
+      <div class="middle-section">
+          <img class="header-logo" src="static/img/wo-logo.png">
+          <h1 class="header-text" >READY</h1>
+          <h1 class="span-header">CET</h1>
+          <h1 class="header-text">GO</h1>
+      </div>
+      <div class="profile" onclick="toggleDropdown()">
+      <img src="static/img/RONALYN.png" alt="Profile Picture">
+      <div class="dropdown">
+        <a href="{{ url_for('profile')}}">Profile</a>
+        <a href="{{ url_for('edit')}}">Edit Profile</a>
+        <a href="{{ url_for('password')}}">Reset Password</a>
+        <a href="#">Calendar</a>
+        <a href="#" id="logoutLink">Logout</a>
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              const logoutLink = document.getElementById("logoutLink");
 
-                logoutLink.addEventListener("click", function(event) {
-                  event.preventDefault(); // Prevent default link behavior
-                  
-                  Swal.fire({
-                    title: 'Are you sure you want to logout?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes, logout',
-                    cancelButtonText: 'Cancel'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      window.location.href = "../log in- signup page/login.html";
-                    }
-                  });
+              logoutLink.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                
+                Swal.fire({
+                  title: 'Are you sure you want to logout?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Yes, logout',
+                  cancelButtonText: 'Cancel'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = "{{ url_for('login')}}";
+                  }
                 });
               });
-            </script>
-        </div>
+            });
+          </script>
       </div>
-    </div> 
-    <nav class="side-bar">
-        <a href="../home/home.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/home.png">
-            </div>
-        </a>
-        <a href="../courses/courses.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
-            </div>
-        </a>
+    </div>
+  </div>
+  <nav class="side-bar">
+      <a href="{{ url_for('home')}}">
+          <div class="sidebar-menu">
+              <img class="menu-icon" src="static/img/home.png">
+          </div>
+      </a>
+      <a href="{{ url_for('courses')}}">
+          <div class="sidebar-menu">
+              <img class="menu-icon" src="static/img/courses-catalog.png">
+          </div>
+      </a>
+      <a href="{{ url_for('mycourses')}}">
         <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+          <img class="menu-icon" src="static/img/my-courses.png">
         </div>
+      </a>
 
+      <a href="{{url_for('dashboard')}}">
         <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+          <img class="menu-icon" src="static/img/dashboard.png">
         </div>
-        
-        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/activities.png">
-        </div></a>
-        <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/sign-out.png">
-        </div>
-        <a href="../navbar-footer/help.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/help.png">
-            </div>
-        </a>
-    </nav>
-    <nav class="sidebar-expand">
-        <a href="../home/home.html">
-            <div class="exp-sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/home.png">
-                <h2 class="menu-text">Home</h2>
-            </div>
-        </a>
-        <a href="../courses/courses.html">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
-                <h2 class="menu-text">Courses Catalog</h2>
-            </div>
-        </a>
+      </a>
+      
+      <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/activities.png">
+      </div></a>
+      <div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/sign-out.png">
+      </div>
+      <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/help.png">
+      </div></a>
+  </nav>
+  <nav class="sidebar-expand">
+      <a href="{{ url_for('home')}}">
+          <div class="exp-sidebar-menu">
+              <img class="menu-icon" src="static/img/home.png">
+              <h2 class="menu-text">Home</h2>
+          </div>
+      </a>
+      <a href="{{ url_for('courses')}}">
+          <div class="exp-sidebar-menu">
+              <img class="exp-menu-icon" src="static/img/courses-catalog.png">
+              <h2 class="menu-text">Courses Catalog</h2>
+          </div>
+      </a>
+      <a href="{{ url_for('mycourses')}}">
         <div class="exp-sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/my-courses.png">
-            <h2 class="menu-text">My Courses</h2>
+          <img class="menu-icon" src="static/img/my-courses.png">
+          <h2 class="menu-text">My Courses</h2>
         </div>
+      </a>
+      <a href="{{ url_for('dashboard')}}">
         <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
-            <h2 class="menu-text">Dashboard</h2>
+          <img class="exp-menu-icon" src="static/img/dashboard.png">
+          <h2 class="menu-text">Dashboard</h2>
         </div>
-        <a href="../activities/activity-homepage.html">
-            <div class="exp-sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/activities.png">
-                <h2 class="menu-text">Activities</h2>
-            </div></a>
+      </a>
+      <a href="{{ url_for('activities')}}">
+          <div class="exp-sidebar-menu">
+              <img class="menu-icon" src="static/img/activities.png">
+              <h2 class="menu-text">Activities</h2>
+          </div></a>
+      <div class="exp-sidebar-menu">
+          <img class="exp-menu-icon" src="static/img/sign-out.png">
+          <h2 class="menu-text">Sign Out</h2>
+      </div>
+      <a href="{{ url_for('help')}}">
         <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
-            <h2 class="menu-text">Sign Out</h2>
-        </div>
-        <a href="../navbar-footer/help.html">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="../side-bar-images/help.png">
-                <h2 class="menu-text">Help</h2>
-            </div>
-        </a>
+          <img class="exp-menu-icon" src="static/img/help.png">
+          <h2 class="menu-text">Help</h2>
+      </div>
+      </a>
 
-    </nav>
+  </nav>
     <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
 
     <div class="activities-container">
@@ -476,7 +482,7 @@ button:hover {
                     </div>
                     <br>
 
-                    <a href="activity-homepage.html">
+                    <a href="{{url_for('activities')}}">
                     <div class="Submit" id="48:73">
                         <div class="blue-rectangle">
                           <p>Submit</p>

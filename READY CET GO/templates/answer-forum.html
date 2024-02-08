@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Owl</title>
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/general.css">  
+    <link rel="stylesheet" href="styles/sidebar-expand.css">  
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="header-images/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="right-section">
+            <img class="profile-logo" src="header-images/user-profile.png">
+        </div>
+    </div>
+   
+    <nav class="sidebar-expand">
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="side-bar-images/home.png">
+            <h2 class="menu-text">Home</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="side-bar-images/courses-catalog.png">
+            <h2 class="menu-text">Courses Catalog</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="side-bar-images/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="side-bar-images/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="side-bar-images/activities.png">
+            <h2 class="menu-text">Activities</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="side-bar-images/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="side-bar-images/help.png">
+            <h2 class="menu-text">Help</h2>
+        </div>
+
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+    <div class="question-content">
+        <div class="left-column">
+            <a href="/dashboard.html"><i class="ri-arrow-left-s-line ri-5x"></i></i></a>
+            <h2> Question:</h2>
+            <p> What does HTML stands for?</p>
+        </div>
+        <div class="right-column">
+            <div class="box-bg">
+                <form class="answer-form">
+                    <textarea id="answer-data" name="answer-data" cols="100" rows="45" placeholder="Type your answer here. (Explanation is optional)"></textarea>
+                </form>
+                <i class="ri-bold ri-lg"></i>
+                <i class="ri-italic ri-lg"></i>
+                <i class="ri-underline ri-lg"></i>
+                <i class="ri-list-unordered ri-lg"></i>
+                <i class="ri-list-ordered ri-lg"></i>
+                <i class="ri-indent-increase ri-lg"></i>
+                <i class="ri-font-family ri-lg"></i>
+                <i class="ri-font-size ri-lg"></i>
+                <a id="answer-text" href="dashboard.html"> Answer </a>
+            </div>
+        </div>
+        
+    </div>
+
+
+</body>
+</html>
+<script> 
+    const side_expand = document.querySelector('.sidebar-expand');
+    const page_expand = document.querySelector('body');
+    const side_disappear = document.querySelector('.side-bar');
+    document.querySelector('.menu-toggle').onclick = function(){
+        this.classList.toggle('active');
+        side_expand.classList.toggle('active');
+        page_expand.classList.toggle('active');
+        side_disappear.classList.toggle('active');
+    }
+
+
+</script>

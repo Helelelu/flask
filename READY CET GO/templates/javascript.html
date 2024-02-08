@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JavaScript for Beginners</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'profile-dropdown.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'page.css')}}">      
+
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
+  
+    .profile:hover .dropdown {
+      display: block;
+    }
+  
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
+  
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  }
+  
+  h3 {
+  font-size: 24px;
+  color: #333;
+  }
+  
+  .form-group {
+  margin-bottom: 20px;
+  }
+  
+  /* Add this to your existing CSS */
+  
+  /* Image Upload Styles */
+  .image-upload {
+  margin-bottom: 20px;
+  }
+  
+  .image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+  }
+  
+  .image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  }
+  
+  /* Form Styles */
+  .form-group {
+  margin-bottom: 20px;
+  }
+  
+  label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+  }
+  
+  input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+  }
+  
+  button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+  
+  button:hover {
+  background-color: #C35CA3;
+  }
+  
+    </style>
+  </head>
+  <body>
+    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
+    <div class="header">
+        <div class="left-section">
+            <i class="ri-menu-line menu-toggle" ></i>
+        </div>
+        <div class="middle-section">
+            <img class="header-logo" src="static/img/wo-logo.png">
+            <h1 class="header-text" >READY</h1>
+            <h1 class="span-header">CET</h1>
+            <h1 class="header-text">GO</h1>
+        </div>
+        <div class="profile" onclick="toggleDropdown()">
+        <img src="static/img/RONALYN.png" alt="Profile Picture">
+        <div class="dropdown">
+          <a href="{{ url_for('profile')}}">Profile</a>
+          <a href="{{ url_for('edit')}}">Edit Profile</a>
+          <a href="{{ url_for('password')}}">Reset Password</a>
+          <a href="#">Calendar</a>
+          <a href="#" id="logoutLink">Logout</a>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const logoutLink = document.getElementById("logoutLink");
+  
+                logoutLink.addEventListener("click", function(event) {
+                  event.preventDefault(); // Prevent default link behavior
+                  
+                  Swal.fire({
+                    title: 'Are you sure you want to logout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, logout',
+                    cancelButtonText: 'Cancel'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      window.location.href = "{{ url_for('login')}}";
+                    }
+                  });
+                });
+              });
+            </script>
+        </div>
+      </div>
+    </div>
+    <nav class="side-bar">
+        <a href="{{ url_for('home')}}">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="static/img/home.png">
+            </div>
+        </a>
+        <a href="{{ url_for('courses')}}">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="static/img/courses-catalog.png">
+            </div>
+        </a>
+        <a href="{{ url_for('mycourses')}}">
+          <div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/my-courses.png">
+          </div>
+        </a>
+  
+        <a href="{{url_for('dashboard')}}">
+          <div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/dashboard.png">
+          </div>
+        </a>
+        
+        <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/activities.png">
+        </div></a>
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/sign-out.png">
+        </div>
+        <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/help.png">
+        </div></a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="{{ url_for('home')}}">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="static/img/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="{{ url_for('courses')}}">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="static/img/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <a href="{{ url_for('mycourses')}}">
+          <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="static/img/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
+          </div>
+        </a>
+        <a href="{{ url_for('dashboard')}}">
+          <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="static/img/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
+          </div>
+        </a>
+        <a href="{{ url_for('activities')}}">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="static/img/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="static/img/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
+        </div>
+        <a href="{{ url_for('help')}}">
+          <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="static/img/help.png">
+            <h2 class="menu-text">Help</h2>
+        </div>
+        </a>
+  
+    </nav>
+    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+    <div class="content-wrapper">
+        <div class="course-title">
+            <h1>JavaScript for Beginners</h1>
+        </div>
+        <div class="course-header">
+            <div class="course-menu" id="h-intro">Intro</div>
+            <div class="course-menu" id="h-content">Content</div>
+        </div>
+
+        <div class="course-page-1 active">
+            <div class="page-title">
+            <h1>Introduction</h1>
+            </div>
+            <div class="page-content">
+                <p>               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor purus, commodo at neque sed, tempus lobortis orci. Nulla facilisi. Suspendisse lobortis molestie nisi, id viverra ante euismod id. Curabitur at ligula non odio tincidunt ullamcorper in quis odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae sem erat. Nunc sed justo gravida, pulvinar tortor quis, feugiat enim. Mauris ultricies tempor blandit. Pellentesque rhoncus viverra auctor. Suspendisse a viverra purus. Duis imperdiet, neque eget vehicula rutrum, mauris augue dapibus risus, non tempus dolor nulla at velit. Nunc id lectus lorem. Suspendisse libero arcu, tincidunt eget porttitor eget, varius sit amet nibh. Morbi eleifend augue quis nunc facilisis, id dapibus metus lacinia. In hac habitasse platea dictumst. Cras interdum consectetur lorem vitae aliquam.</p>
+            </div>
+            <div class="video">    
+                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+            </div>
+            <div class="page-content">
+                <p>               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tortor purus, commodo at neque sed, tempus lobortis orci. Nulla facilisi. Suspendisse lobortis molestie nisi, id viverra ante euismod id. Curabitur at ligula non odio tincidunt ullamcorper in quis odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae sem erat. Nunc sed justo gravida, pulvinar tortor quis, feugiat enim. Mauris ultricies tempor blandit. Pellentesque rhoncus viverra auctor. Suspendisse a viverra purus. Duis imperdiet, neque eget vehicula rutrum, mauris augue dapibus risus, non tempus dolor nulla at velit. Nunc id lectus lorem. Suspendisse libero arcu, tincidunt eget porttitor eget, varius sit amet nibh. Morbi eleifend augue quis nunc facilisis, id dapibus metus lacinia. In hac habitasse platea dictumst. Cras interdum consectetur lorem vitae aliquam.</p>
+            </div>
+        
+        </div>
+
+        <div class="course-page-2">
+            <div class="page-title">
+            <h1>Course Content</h1>
+            </div>
+            <div class="page-learn">
+                <h1>What you’ll learn</h1>   
+                <ul>
+                    <li> Lorem ipsum dolor sit amet, c</li>
+                    <li> Lorem ipsum dolor sit amet, c</li>
+                    <li> Lorem ipsum dolor sit amet, c</li>
+                </ul>
+            </div>
+            <div class="page-title">
+                <h1 style="margin-bottom: 20px;">Modules</h1>
+            </div>
+            <div class="module-wrapper">
+                <div class="mod-num" id="m1">
+                    <h1>Module 1</h1>
+                </div>
+                <div class="mod-content" id="m1cont">
+                    <div class="mod-stage" id="m11">
+                        <h1>Module 1.1</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m11e">
+                        <h1>Module 1.1 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m12">
+                        <h1>Module 1.2</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m12e">
+                        <h1>Module 1.2 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-wrapper">
+                <div class="mod-num" id="m2">
+                    <h1>Module 2</h1>
+                </div>
+                <div class="mod-content" id="m2cont">
+                    <div class="mod-stage" id="m21">
+                        <h1>Module 2.1</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m21e">
+                        <h1>Module 2.1 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m22">
+                        <h1>Module 2.2</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m22e">
+                        <h1>Module 2.2 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-wrapper">
+                <div class="mod-num" id="m3">
+                    <h1>Module 3</h1>
+                </div>
+                <div class="mod-content" id="m3cont">
+                    <div class="mod-stage" id="m31">
+                        <h1>Module 3.1</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m31e">
+                        <h1>Module 3.1 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m32">
+                        <h1>Module 3.2</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m32e">
+                        <h1>Module 3.2 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="module-wrapper">
+                <div class="mod-num" id="m4">
+                    <h1>Module 4</h1>
+                </div>
+                <div class="mod-content" id="m4cont">
+                    <div class="mod-stage" id="m41">
+                        <h1>Module 4.1</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m41e">
+                        <h1>Module 4.1 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m42">
+                        <h1>Module 4.2</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-stage" id="m42e">
+                        <h1>Module 4.2 (Exercise)</h1>
+                        <div class="mod-inner">
+                            <div class="mod-vid">
+                                <iframe width="500px" height="400" src="https://www.youtube.com/embed/DHjqpvDnNGE?si=FAaAzqg742QKDcsJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border: none; border-radius: 24px"></iframe>
+                            </div>
+                            <div class="mod-desc">
+                                <p>Nam quis tempor quam, quis rutrum tellus. Curabitur nec lectus ac dui faucibus semper. Etiam finibus eros at nibh lobortis congue. Sed lacinia mattis justo, a volutpat justo porta eu. Pe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+        const side_expand = document.querySelector('.sidebar-expand');
+const page_expand = document.querySelector('body');
+const side_disappear = document.querySelector('.side-bar');
+document.querySelector('.menu-toggle').onclick = function(){
+    this.classList.toggle('active');
+    side_expand.classList.toggle('active');
+    page_expand.classList.toggle('active');
+    side_disappear.classList.toggle('active');
+}
+
+const profile_dropdown = document.querySelector('.profile-dropdown');
+document.querySelector('.profile-logo').addEventListener('click', function(){
+    this.classList.toggle('active');
+    profile_dropdown.classList.toggle('active');
+})
+
+function redirectJava() {
+window.location.href = "{{ url_for('java_course')}}";
+}
+
+function redirectPython() {
+window.location.href = "{{ url_for('python_course')}}";
+}
+
+function redirectJavaS() {
+window.location.href = "{{ url_for('java_course')}}";
+}
+
+function redirectCSS() {
+window.location.href = "{{ url_for('css_course')}}";
+}
+
+function redirectHTML() {
+window.location.href = "{{ url_for('html_course')}}";
+}
+
+function redirectMyCourses() {
+window.location.href = "{{ url_for('mycourses')}}";
+}
+
+const cont_page = document.querySelector('.content-page-2');
+document.querySelector('#h-content').addEventListener('click', function(){
+    this.classList.toggle('active');
+    cont_page.classList.toggle('active');
+}
+)
+
+const hIntroElement = document.querySelector('#h-intro');
+const hContentElement = document.querySelector('#h-content');
+const coursePage1Element = document.querySelector('.course-page-1');
+const coursePage2Element = document.querySelector('.course-page-2');
+
+hIntroElement.addEventListener('click', function() {
+    coursePage1Element.classList.add('active');
+    coursePage2Element.classList.remove('active');
+});
+
+hContentElement.addEventListener('click', function() {
+    coursePage2Element.classList.add('active');
+    coursePage1Element.classList.remove('active'); 
+});
+
+const m1Element = document.querySelector('#m1');
+const m11Element = document.querySelector('#m11');
+const m11_eElement = document.querySelector('#m11e');
+const m12Element = document.querySelector('#m12');
+const m12_eElement = document.querySelector('#m12e');
+const module1Element = document.querySelector('#m1cont');
+
+//module1
+m1Element.addEventListener('click', function() {
+    module1Element.classList.toggle('active');
+});
+
+m11Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m11_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m12Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m12_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+//module2
+const m2Element = document.querySelector('#m2');
+const m21Element = document.querySelector('#m21');
+const m21_eElement = document.querySelector('#m21e');
+const m22Element = document.querySelector('#m22');
+const m22_eElement = document.querySelector('#m22e');
+const module2Element = document.querySelector('#m2cont');
+
+m2Element.addEventListener('click', function() {
+    module2Element.classList.toggle('active');
+});
+
+m21Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m21_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m22Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m22_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+//module3
+const m3Element = document.querySelector('#m3');
+const m31Element = document.querySelector('#m31');
+const m31_eElement = document.querySelector('#m31e');
+const m32Element = document.querySelector('#m32');
+const m32_eElement = document.querySelector('#m32e');
+const module3Element = document.querySelector('#m3cont');
+
+m3Element.addEventListener('click', function() {
+    module3Element.classList.toggle('active');
+});
+
+m31Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m31_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m32Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m32_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+//module4
+const m4Element = document.querySelector('#m4');
+const m41Element = document.querySelector('#m41');
+const m41_eElement = document.querySelector('#m41e');
+const m42Element = document.querySelector('#m42');
+const m42_eElement = document.querySelector('#m42e');
+const module4Element = document.querySelector('#m4cont');
+
+m4Element.addEventListener('click', function() {
+    module4Element.classList.toggle('active');
+});
+
+m41Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m41_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m42Element.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
+m42_eElement.addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+</script>

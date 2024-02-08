@@ -1,0 +1,414 @@
+.thumbnail{
+    min-height: 170px;
+    max-height: 170px;
+    position: relative;
+}
+.course-title{
+    top: 0;
+    left: 0;
+    font-size: 25px;
+    font-weight: lighter;
+    background-color: #A35CA3;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.course-title h1{
+    font-weight: lighter;
+    color: white;
+}
+.course-header{
+    background-color: #8F8E8E;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    align-items:center ;
+    margin-bottom: 40PX;
+}
+.course-menu{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 20px;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+    border-style: none;
+    transition: 0.15s;
+    border-radius: 10px;
+    padding: 10px;
+}
+.course-menu:hover{
+    background-color: rgba(255, 255, 255, 0.20);
+
+}.course-page-1{ /*Introduction*/
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+.course-page-1.active{
+    display: flex;
+}
+.page-title{
+    font-size: 22px;
+    align-self: flex-start;
+    padding-left: 30px;
+}
+.page-title h1{
+    color: black;  
+}
+.page-content{
+    font-size: 22px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+.page-content p{
+    text-align: justify;
+    text-indent: 5%;
+    font-family: 'Aldrich', sans-serif;
+    font-weight: lighter;
+}
+.video{
+    margin: 30px;
+}
+.course-page-2{ /*Content*/
+    padding-left: 30px;
+    padding-right: 30px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.course-page-2.active{
+    display: flex;
+}
+
+.page-learn{
+    padding: 7px 20px 7px 20px;
+
+    margin: 40px 0 40px 30px;
+    align-self: flex-start;
+    font-family: 'Aldrich', sans-serif;
+    font-size: 20px;
+    width: 550px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.page-learn h1{
+    font-weight: lighter;
+}
+.module-wrapper{
+    margin-top: 20px;
+    margin-left: 30px;
+    align-self: flex-start;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.mod-num{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 40px 0px 40px 40px;
+}
+.mod-content{
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid;
+}
+.mod-content.active{
+    display: flex;
+}
+
+.mod-stage{
+    padding: 40px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border-bottom: 2px solid #A35CA3;
+    margin: 0 20px 0 20px;
+    height: 40px;
+}
+.mod-stage h1{
+    font-weight: lighter;
+}
+.mod-inner{
+    padding-top: 40px;
+    display: none;
+    flex-direction: row;
+}
+
+.mod-vid{
+    margin-right: 50px;
+}
+.mod-desc{
+    text-indent: 10%;
+    text-align: justify;
+}
+.mod-desc p{
+    font-family: 'Aldrich', sans-serif;
+    font-weight: lighter;
+    font-size: 25px;
+}
+
+/*MODULE1.1*/
+
+#m11.active .mod-inner {
+    display: flex;
+}
+
+#m11.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m11.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE1.1E*/
+#m11e.active .mod-inner {
+    display: flex;
+}
+
+#m11e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m11e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE1.2*/
+#m12.active .mod-inner {
+    display: flex;
+}
+
+#m12.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m12.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE1.2E*/
+#m12e.active .mod-inner {
+    display: flex;
+}
+
+#m12e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m12e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+#m12e{
+    border-bottom:none ;
+}
+
+/*MODULE2.1*/
+
+#m21.active .mod-inner {
+    display: flex;
+}
+
+#m21.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m21.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE2.1E*/
+#m21e.active .mod-inner {
+    display: flex;
+}
+
+#m21e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m21e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE2.2*/
+#m22.active .mod-inner {
+    display: flex;
+}
+
+#m22.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m22.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE2.2E*/
+#m22e.active .mod-inner {
+    display: flex;
+}
+
+#m22e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m22e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+#m22e{
+    border-bottom:none ;
+}
+
+/*MODULE3.1*/
+
+#m31.active .mod-inner {
+    display: flex;
+}
+
+#m31.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m31.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE3.1E*/
+#m31e.active .mod-inner {
+    display: flex;
+}
+
+#m31e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m31e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE3.2*/
+#m32.active .mod-inner {
+    display: flex;
+}
+
+#m32.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m32.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE3.2E*/
+#m32e.active .mod-inner {
+    display: flex;
+}
+
+#m32e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m32e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+#m32e{
+    border-bottom:none ;
+}
+
+/*MODULE4.1*/
+
+#m41.active .mod-inner {
+    display: flex;
+}
+
+#m41.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m41.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE4.1E*/
+#m41e.active .mod-inner {
+    display: flex;
+}
+
+#m41e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m41e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE4.2*/
+#m42.active .mod-inner {
+    display: flex;
+}
+
+#m42.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m42.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/*MODULE4.2E*/
+#m42e.active .mod-inner {
+    display: flex;
+}
+
+#m42e.active {
+    height: 100%;
+    transition: height 0.5s ease;
+}
+
+#m42e.active .mod-content {
+    display: flex;
+    flex-direction: column;
+}
+#m42e{
+    border-bottom:none ;
+}

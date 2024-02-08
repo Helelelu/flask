@@ -118,9 +118,9 @@ def machine_learning():
     return render_template('machine_learning.html')
 
 
-@app.route('/networking_administration')
-def networking_administration():    
-    return render_template('network_administation.html')
+@app.route('/network_administration')
+def network_administration():    
+    return render_template('networking_administration.html')
 
 @app.route('/cyber_security')
 def cyber_security():

@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>White Owl</title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="styles/general.css">  
-    <link rel="stylesheet" href="../styles/side-bar.css">  
-    <link rel="stylesheet" href="../styles/sidebar-expand.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'profile-general.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}"> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
       align-items: center;
       margin-bottom: 20px;
     }
-
+  
     .profile img {
       width: 40px;
       height: 40px;
@@ -30,7 +30,7 @@
       margin-right: 10px;
       cursor: pointer;
     }
-
+  
     /* Dropdown Styles */
     .dropdown {
       display: none;
@@ -43,18 +43,18 @@
       margin-top: 13em;
       border-radius: 20px;
     }
-
+  
     .profile:hover .dropdown {
       display: block;
     }
-
+  
     .dropdown a {
       color: #333;
       padding: 12px;
       text-decoration: none;
       display: block;
     }
-
+  
     .dropdown a:hover {
       background-color: #C35CA3;
       color:white;
@@ -67,32 +67,32 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-}
-
-h3 {
+  }
+  
+  h3 {
   font-size: 24px;
   color: #333;
-}
-
-.form-group {
+  }
+  
+  .form-group {
   margin-bottom: 20px;
-}
-
-/* Add this to your existing CSS */
-
-/* Image Upload Styles */
-.image-upload {
+  }
+  
+  /* Add this to your existing CSS */
+  
+  /* Image Upload Styles */
+  .image-upload {
   margin-bottom: 20px;
-}
-
-.image-upload label {
+  }
+  
+  .image-upload label {
   display: block;
   margin-bottom: 8px;
   color: #555;
   font-size: 12px;
-}
-
-.image-upload input {
+  }
+  
+  .image-upload input {
   display: block;
   width: 100%;
   padding: 10px;
@@ -101,21 +101,21 @@ h3 {
   border-radius: 3em;
   box-sizing: border-box;
   margin-bottom: 15px;
-}
-
-/* Form Styles */
-.form-group {
+  }
+  
+  /* Form Styles */
+  .form-group {
   margin-bottom: 20px;
-}
-
-label {
+  }
+  
+  label {
   display: block;
   margin-bottom: 8px;
   color: #555;
   font-size: 12px;
-}
-
-input {
+  }
+  
+  input {
   width: 100%;
   padding: 14px;
   font-size: 16px;
@@ -123,9 +123,9 @@ input {
   background-color: #ededed;
   border-radius: 3em;
   box-sizing: border-box;
-}
-
-button {
+  }
+  
+  button {
   background-color: #B88CB1;
   color: white;
   width: 100%;
@@ -135,39 +135,39 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-button:hover {
+  }
+  
+  button:hover {
   background-color: #C35CA3;
-}
-
+  }
+  
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
     <div class="header">
         <div class="left-section">
             <i class="ri-menu-line menu-toggle" ></i>
         </div>
         <div class="middle-section">
-            <img class="header-logo" src="../header-images/wo-logo.png">
+            <img class="header-logo" src="static/img/wo-logo.png">
             <h1 class="header-text" >READY</h1>
             <h1 class="span-header">CET</h1>
             <h1 class="header-text">GO</h1>
         </div>
         <div class="profile" onclick="toggleDropdown()">
-        <img src="header-images/runa.png" alt="Profile Picture">
+        <img src="static/img/RONALYN.png" alt="Profile Picture">
         <div class="dropdown">
-          <a href="profile.html">Profile</a>
-          <a href="edit.html">Edit Profile</a>
-          <a href="pass.html">Reset Password</a>
+          <a href="{{ url_for('profile')}}">Profile</a>
+          <a href="{{ url_for('edit')}}">Edit Profile</a>
+          <a href="{{ url_for('password')}}">Reset Password</a>
           <a href="#">Calendar</a>
           <a href="#" id="logoutLink">Logout</a>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script>
               document.addEventListener("DOMContentLoaded", function() {
                 const logoutLink = document.getElementById("logoutLink");
-
+  
                 logoutLink.addEventListener("click", function(event) {
                   event.preventDefault(); // Prevent default link behavior
                   
@@ -179,7 +179,7 @@ button:hover {
                     cancelButtonText: 'Cancel'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      window.location.href = "../log in- signup page/login.html";
+                      window.location.href = "{{ url_for('login')}}";
                     }
                   });
                 });
@@ -189,74 +189,83 @@ button:hover {
       </div>
     </div>
     <nav class="side-bar">
-      <a href="../home/home.html">
+        <a href="{{ url_for('home')}}">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="static/img/home.png">
+            </div>
+        </a>
+        <a href="{{ url_for('courses')}}">
+            <div class="sidebar-menu">
+                <img class="menu-icon" src="static/img/courses-catalog.png">
+            </div>
+        </a>
+        <a href="{{ url_for('mycourses')}}">
           <div class="sidebar-menu">
-              <img class="menu-icon" src="../side-bar-images/home.png">
+            <img class="menu-icon" src="static/img/my-courses.png">
           </div>
-      </a>
-      <a href="../courses/courses.html">
+        </a>
+  
+        <a href="{{url_for('dashboard')}}">
           <div class="sidebar-menu">
-              <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
+            <img class="menu-icon" src="static/img/dashboard.png">
           </div>
-      </a>
-      <div class="sidebar-menu">
-          <img class="menu-icon" src="../side-bar-images/my-courses.png">
-      </div>
-
-      <div class="sidebar-menu">
-          <img class="menu-icon" src="../side-bar-images/dashboard.png">
-      </div>
-      
-      <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
-          <img class="menu-icon" src="../side-bar-images/activities.png">
-      </div></a>
-      <div class="sidebar-menu">
-          <img class="menu-icon" src="../side-bar-images/sign-out.png">
-      </div>
-      <a href="../navbar-footer/help.html">
+        </a>
+        
+        <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/activities.png">
+        </div></a>
         <div class="sidebar-menu">
-          <img class="menu-icon" src="../side-bar-images/help.png">
+            <img class="menu-icon" src="static/img/sign-out.png">
         </div>
-      </a>
-  </nav>
-  <nav class="sidebar-expand">
-      <a href="../home/home.html">
+        <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/help.png">
+        </div></a>
+    </nav>
+    <nav class="sidebar-expand">
+        <a href="{{ url_for('home')}}">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="static/img/home.png">
+                <h2 class="menu-text">Home</h2>
+            </div>
+        </a>
+        <a href="{{ url_for('courses')}}">
+            <div class="exp-sidebar-menu">
+                <img class="exp-menu-icon" src="static/img/courses-catalog.png">
+                <h2 class="menu-text">Courses Catalog</h2>
+            </div>
+        </a>
+        <a href="{{ url_for('mycourses')}}">
           <div class="exp-sidebar-menu">
-              <img class="menu-icon" src="../side-bar-images/home.png">
-              <h2 class="menu-text">Home</h2>
+            <img class="menu-icon" src="static/img/my-courses.png">
+            <h2 class="menu-text">My Courses</h2>
           </div>
-      </a>
-      <a href="../courses/courses.html">
+        </a>
+        <a href="{{ url_for('dashboard')}}">
           <div class="exp-sidebar-menu">
-              <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
-              <h2 class="menu-text">Courses Catalog</h2>
+            <img class="exp-menu-icon" src="static/img/dashboard.png">
+            <h2 class="menu-text">Dashboard</h2>
           </div>
-      </a>
-      <div class="exp-sidebar-menu">
-          <img class="menu-icon" src="../side-bar-images/my-courses.png">
-          <h2 class="menu-text">My Courses</h2>
-      </div>
-      <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
-          <h2 class="menu-text">Dashboard</h2>
-      </div>
-      <a href="../activities/activity-homepage.html">
-          <div class="exp-sidebar-menu">
-              <img class="menu-icon" src="../side-bar-images/activities.png">
-              <h2 class="menu-text">Activities</h2>
-          </div></a>
-      <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
-          <h2 class="menu-text">Sign Out</h2>
-      </div>
-      <a href="../navbar-footer/help.html">
+        </a>
+        <a href="{{ url_for('activities')}}">
+            <div class="exp-sidebar-menu">
+                <img class="menu-icon" src="static/img/activities.png">
+                <h2 class="menu-text">Activities</h2>
+            </div></a>
         <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="../side-bar-images/help.png">
-          <h2 class="menu-text">Help</h2>
+            <img class="exp-menu-icon" src="static/img/sign-out.png">
+            <h2 class="menu-text">Sign Out</h2>
         </div>
-      </a>
+        <a href="{{ url_for('help')}}">
+          <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="static/img/help.png">
+            <h2 class="menu-text">Help</h2>
+        </div>
+        </a>
+  
+    </nav>
 
-  </nav>
+    <!-- Content -->
+
     <br>
 <div class="edit-profile-container">
     <h3>Edit Profile</h3>

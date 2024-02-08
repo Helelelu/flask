@@ -16,6 +16,11 @@
     transition: 0.15s;
     padding-right: 10px;
 }
+
+.sidebar-expand a{
+    text-decoration: none;
+}
+
 .sidebar-expand.active{
     visibility: visible;
     left: 0;

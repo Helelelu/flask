@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Creators</title>
-    <link rel="stylesheet" href="../styles/side-bar.css">
-    <link rel="stylesheet" href="../styles/header.css">  
-    <link rel="stylesheet" href="../styles/general.css">  
-    <link rel="stylesheet" href="../styles/sidebar-expand.css"> 
-    <link rel="stylesheet" href="creators.css">  
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'creators.css')}}">
+    
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +31,6 @@
       margin-right: 10px;
       cursor: pointer;
     }
-
     /* Dropdown Styles */
     .dropdown {
       display: none;
@@ -146,124 +146,130 @@ button:hover {
 <body>
     <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
     <div class="header">
-        <div class="left-section">
-            <i class="ri-menu-line menu-toggle" ></i>
-        </div>
-        <div class="middle-section">
-            <img class="header-logo" src="../header-images/wo-logo.png">
-            <h1 class="header-text" >READY</h1>
-            <h1 class="span-header">CET</h1>
-            <h1 class="header-text">GO</h1>
-        </div>
-        <div class="profile" onclick="toggleDropdown()">
-        <img src="../img/RONALYN.png" alt="Profile Picture">
+      <div class="left-section">
+          <i class="ri-menu-line menu-toggle" ></i>
+      </div>
+      <div class="middle-section">
+          <img class="header-logo" src="static/img/wo-logo.png">
+          <h1 class="header-text" >READY</h1>
+          <h1 class="span-header">CET</h1>
+          <h1 class="header-text">GO</h1>
+      </div>
+      <div class="profile" onclick="toggleDropdown()">
+        <img src="static/img/RONALYN.png" alt="Profile Picture">
         <div class="dropdown">
-          <a href="../profile/profile.html">Profile</a>
-          <a href="../profile/edit.html">Edit Profile</a>
-          <a href="../profile/pass.html">Reset Password</a>
-          <a href="#">Calendar</a>
-          <a href="#" id="logoutLink">Logout</a>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script>
-              document.addEventListener("DOMContentLoaded", function() {
-                const logoutLink = document.getElementById("logoutLink");
+          <a href="{{ url_for('profile')}}">Profile</a>
+          <a href="{{ url_for('edit')}}">Edit Profile</a>
+          <a href="{{ url_for('password')}}">Reset Password</a>
+        <a href="#">Calendar</a>
+        <a href="#" id="logoutLink">Logout</a>
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+              const logoutLink = document.getElementById("logoutLink");
 
-                logoutLink.addEventListener("click", function(event) {
-                  event.preventDefault(); // Prevent default link behavior
-                  
-                  Swal.fire({
-                    title: 'Are you sure you want to logout?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes, logout',
-                    cancelButtonText: 'Cancel'
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      window.location.href = "../log in- signup page/login.html";
-                    }
-                  });
+              logoutLink.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                
+                Swal.fire({
+                  title: 'Are you sure you want to logout?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Yes, logout',
+                  cancelButtonText: 'Cancel'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    window.location.href = "../log in- signup page/login.html";
+                  }
                 });
               });
-            </script>
-        </div>
+            });
+          </script>
       </div>
-    </div> 
-    <nav class="side-bar">
-        <a href="../home/home.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/home.png">
-            </div>
-        </a>
-        <a href="../courses/courses.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
-            </div>
-        </a>
+    </div>
+  </div> 
+  <nav class="side-bar">
+    <a href="{{ url_for('home')}}">
         <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+            <img class="menu-icon" src="static/img/home.png">
         </div>
+    </a>
+    <a href="{{ url_for('courses')}}">
+        <div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/courses-catalog.png">
+        </div>
+    </a>
+    <a href="{{ url_for('mycourses')}}">
+      <div class="sidebar-menu">
+        <img class="menu-icon" src="static/img/my-courses.png">
+      </div>
+    </a>
 
-        <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+    <a href="{{url_for('dashboard')}}">
+      <div class="sidebar-menu">
+        <img class="menu-icon" src="static/img/dashboard.png">
+      </div>
+    </a>
+    
+    <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
+        <img class="menu-icon" src="static/img/activities.png">
+    </div></a>
+    <div class="sidebar-menu">
+        <img class="menu-icon" src="static/img/sign-out.png">
+    </div>
+    <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+        <img class="menu-icon" src="static/img/help.png">
+    </div></a>
+</nav>
+<nav class="sidebar-expand">
+    <a href="{{ url_for('home')}}">
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="static/img/home.png">
+            <h2 class="menu-text">Home</h2>
         </div>
-        
-        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/activities.png">
+    </a>
+    <a href="{{ url_for('courses')}}">
+        <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="static/img/courses-catalog.png">
+            <h2 class="menu-text">Courses Catalog</h2>
+        </div>
+    </a>
+    <a href="{{ url_for('mycourses')}}">
+      <div class="exp-sidebar-menu">
+        <img class="menu-icon" src="static/img/my-courses.png">
+        <h2 class="menu-text">My Courses</h2>
+      </div>
+    </a>
+    <a href="{{ url_for('dashboard')}}">
+      <div class="exp-sidebar-menu">
+        <img class="exp-menu-icon" src="static/img/dashboard.png">
+        <h2 class="menu-text">Dashboard</h2>
+      </div>
+    </a>
+    <a href="{{ url_for('activities')}}">
+        <div class="exp-sidebar-menu">
+            <img class="menu-icon" src="static/img/activities.png">
+            <h2 class="menu-text">Activities</h2>
         </div></a>
-        <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/sign-out.png">
-        </div>
-        <a href="../navbar-footer/help.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/help.png">
-            </div>
-        </a>
-    </nav>
-    <nav class="sidebar-expand">
-        <a href="../home/home.html">
-            <div class="exp-sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/home.png">
-                <h2 class="menu-text">Home</h2>
-            </div>
-        </a>
-        <a href="../courses/courses.html">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
-                <h2 class="menu-text">Courses Catalog</h2>
-            </div>
-        </a>
-        <div class="exp-sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/my-courses.png">
-            <h2 class="menu-text">My Courses</h2>
-        </div>
-        <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
-            <h2 class="menu-text">Dashboard</h2>
-        </div>
-        <a href="../activities/activity-homepage.html">
-            <div class="exp-sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/activities.png">
-                <h2 class="menu-text">Activities</h2>
-            </div></a>
-        <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
-            <h2 class="menu-text">Sign Out</h2>
-        </div>
-        <a href="../navbar-footer/help.html">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="../side-bar-images/help.png">
-                <h2 class="menu-text">Help</h2>
-            </div>
-        </a>
+    <div class="exp-sidebar-menu">
+        <img class="exp-menu-icon" src="static/img/sign-out.png">
+        <h2 class="menu-text">Sign Out</h2>
+    </div>
+    <a href="{{ url_for('help')}}">
+      <div class="exp-sidebar-menu">
+        <img class="exp-menu-icon" src="static/img/help.png">
+        <h2 class="menu-text">Help</h2>
+    </div>
+    </a>
 
-    </nav>
+</nav>
     
 <div class="button-container">
     <div class="back-btn" onclick="goBack()">
-        <img src="../img/back btn.png" alt="back-button">
+        <img src="static/img/back btn.png" alt="back-button">
     </div>
     <div class="exit-btn" onclick="redirectToHome()">
-        <img src="../img/exit btn.png" alt="exit-button">
+        <img src="static/img/exit btn.png" alt="exit-button">
     </div>
 </div>
 
@@ -275,35 +281,36 @@ button:hover {
 <div class="parent-container">
     <div class="row">
         <div class="column">
-            <img src="../img/VANICA.png" alt="Image 1">
+            <img src="static/img/VANICA.png" alt="Image 1">
             <p class="name">LOBUSTA, VANICA O.</p>
         </div>
         <div class="column">
-            <img src="../img/JADE.png" alt="Image 2">
+            <img src="static//img/JADE.png" alt="Image 2">
             <p class="name">DE GUZMAN, JERMAINE JADE</p>
         </div>
         <div class="column">
-            <img src="../img/GAEBRIEL.png" alt="Image 3">
+            <img src="static//img/GAEBRIEL.png" alt="Image 3">
             <p class="name">MARQUEZ, YUAN GAEBRIEL</p>
         </div>
         <div class="column">
-            <img src="../img/MIGUEL.png" alt="Image 4">
+            <img src="static//img/MIGUEL.png" alt="Image 4">
             <p class="name">GAMO, JUAN MIGUEL</p>
         </div>
     </div>
     <div class="row">
         <div class="column">
-            <img src="../img/LARENZ.png" alt="Image 5">
+            <img src="static//img/LARENZ.png" alt="Image 5">
             <p class="name">MANALO, HAEL LARENZ</p>
         </div>
         <div class="column">
-            <img src="../img/JHONAS.png" alt="Image 6">
+            <img src="static/img/JHONAS.png" alt="Image 6">
             <p class="name">ABAJA, JHONAS</p>
         </div>
         <div class="column">
-            <img src="../img/RONALYN.png" alt="Image 7">
+            <img src="static/img/RONALYN.png" alt="Image 7">
             <p class="name">MALOLOY-ON, RONALYN</p>
         </div>
+
     </div>
 </div>
 

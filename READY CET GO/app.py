@@ -109,22 +109,27 @@ def act_py1():
 def act_java1():
     return render_template('act_java1.html')
 
-@app.route('/databasemanagement')
-def database():
-    return render_template('database-management.html')
+@app.route('/database_management')
+def database_management():
+    return render_template('database_management.html')
 
-@app.route('/machinelearning')
-def machinelearning():
-    return render_template('machine-learning.html')
+@app.route('/machine_learning')
+def machine_learning():
+    return render_template('machine_learning.html')
 
 
-@app.route('/networkingadministration')
-def networkingadministration():
-    return render_template('network-administation.html')
+@app.route('/networking_administration')
+def networking_administration():    
+    return render_template('network_administation.html')
 
-@app.route('/projectmanagement')
-def projectmanagementn():
-    return render_template('project-management.html')
+@app.route('/cyber_security')
+def cyber_security():
+    return render_template('cyber_security.html')
+
+
+@app.route('/project_management')
+def project_management():
+    return render_template('project_management.html')
 
 @app.route('/quizcss')
 def quizcss():
@@ -142,13 +147,17 @@ def quizjava():
 def quizpy():
     return render_template('quizpy.html')
 
-@app.route('/webdev')
-def webdev():
-    return render_template('web-dev.html')
+@app.route('/web_dev')
+def web_dev():
+    return render_template('web_dev.html')
 
 @app.route('/quizjs')
 def quizjs():
     return render_template('quizjs.html')
+
+@app.route('/app_dev')
+def app_dev():
+    return render_template('app_dev.html')
 
 
 

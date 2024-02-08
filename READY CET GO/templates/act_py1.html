@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>White Owl</title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/general.css">  
-    <link rel="stylesheet" href="../styles/side-bar.css">  
-    <link rel="stylesheet" href="../styles/sidebar-expand.css">
-    <link rel="stylesheet" href="styles/act-html1.css">  
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'act-html1.css')}}">
 
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -151,17 +151,17 @@ button:hover {
             <i class="ri-menu-line menu-toggle" ></i>
         </div>
         <div class="middle-section">
-            <img class="header-logo" src="../header-images/wo-logo.png">
+            <img class="header-logo" src="static/img/wo-logo.png">
             <h1 class="header-text" >READY</h1>
             <h1 class="span-header">CET</h1>
             <h1 class="header-text">GO</h1>
         </div>
         <div class="profile" onclick="toggleDropdown()">
-        <img src="../img/RONALYN.png" alt="Profile Picture">
-        <div class="dropdown">
-          <a href="../profile/profile.html">Profile</a>
-          <a href="../profile/edit.html">Edit Profile</a>
-          <a href="../profile/pass.html">Reset Password</a>
+          <img src="static/img/RONALYN.png" alt="Profile Picture">
+          <div class="dropdown">
+            <a href="{{ url_for('profile')}}">Profile</a>
+            <a href="{{ url_for('edit')}}">Edit Profile</a>
+            <a href="{{ url_for('password')}}">Reset Password</a>
           <a href="#">Calendar</a>
           <a href="#" id="logoutLink">Logout</a>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -190,74 +190,80 @@ button:hover {
       </div>
     </div> 
     <nav class="side-bar">
-        <a href="../home/home.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/home.png">
-            </div>
-        </a>
-        <a href="../courses/courses.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/courses-catalog.png">
-            </div>
-        </a>
+      <a href="{{ url_for('home')}}">
+          <div class="sidebar-menu">
+              <img class="menu-icon" src="static/img/home.png">
+          </div>
+      </a>
+      <a href="{{ url_for('courses')}}">
+          <div class="sidebar-menu">
+              <img class="menu-icon" src="static/img/courses-catalog.png">
+          </div>
+      </a>
+      <a href="{{ url_for('mycourses')}}">
         <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/my-courses.png">
+          <img class="menu-icon" src="static/img/my-courses.png">
         </div>
+      </a>
 
+      <a href="{{url_for('dashboard')}}">
         <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/dashboard.png">
+          <img class="menu-icon" src="static/img/dashboard.png">
         </div>
-        
-        <a href="../activities/activity-homepage.html"><div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/activities.png">
-        </div></a>
-        <div class="sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/sign-out.png">
-        </div>
-        <a href="../navbar-footer/help.html">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/help.png">
-            </div>
-        </a>
-    </nav>
-    <nav class="sidebar-expand">
-        <a href="../home/home.html">
-            <div class="exp-sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/home.png">
-                <h2 class="menu-text">Home</h2>
-            </div>
-        </a>
-        <a href="../courses/courses.html">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="../side-bar-images/courses-catalog.png">
-                <h2 class="menu-text">Courses Catalog</h2>
-            </div>
-        </a>
+      </a>
+      
+      <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/activities.png">
+      </div></a>
+      <div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/sign-out.png">
+      </div>
+      <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+          <img class="menu-icon" src="static/img/help.png">
+      </div></a>
+  </nav>
+  <nav class="sidebar-expand">
+      <a href="{{ url_for('home')}}">
+          <div class="exp-sidebar-menu">
+              <img class="menu-icon" src="static/img/home.png">
+              <h2 class="menu-text">Home</h2>
+          </div>
+      </a>
+      <a href="{{ url_for('courses')}}">
+          <div class="exp-sidebar-menu">
+              <img class="exp-menu-icon" src="static/img/courses-catalog.png">
+              <h2 class="menu-text">Courses Catalog</h2>
+          </div>
+      </a>
+      <a href="{{ url_for('mycourses')}}">
         <div class="exp-sidebar-menu">
-            <img class="menu-icon" src="../side-bar-images/my-courses.png">
-            <h2 class="menu-text">My Courses</h2>
+          <img class="menu-icon" src="static/img/my-courses.png">
+          <h2 class="menu-text">My Courses</h2>
         </div>
+      </a>
+      <a href="{{ url_for('dashboard')}}">
         <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="../side-bar-images/dashboard.png">
-            <h2 class="menu-text">Dashboard</h2>
+          <img class="exp-menu-icon" src="static/img/dashboard.png">
+          <h2 class="menu-text">Dashboard</h2>
         </div>
-        <a href="../activities/activity-homepage.html">
-            <div class="exp-sidebar-menu">
-                <img class="menu-icon" src="../side-bar-images/activities.png">
-                <h2 class="menu-text">Activities</h2>
-            </div></a>
+      </a>
+      <a href="{{ url_for('activities')}}">
+          <div class="exp-sidebar-menu">
+              <img class="menu-icon" src="static/img/activities.png">
+              <h2 class="menu-text">Activities</h2>
+          </div></a>
+      <div class="exp-sidebar-menu">
+          <img class="exp-menu-icon" src="static/img/sign-out.png">
+          <h2 class="menu-text">Sign Out</h2>
+      </div>
+      <a href="{{ url_for('help')}}">
         <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="../side-bar-images/sign-out.png">
-            <h2 class="menu-text">Sign Out</h2>
-        </div>
-        <a href="../navbar-footer/help.html">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="../side-bar-images/help.png">
-                <h2 class="menu-text">Help</h2>
-            </div>
-        </a>
+          <img class="exp-menu-icon" src="static/img/help.png">
+          <h2 class="menu-text">Help</h2>
+      </div>
+      </a>
 
-    </nav>
+  </nav>
     <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
 
     <div class="activities-container">
@@ -268,7 +274,7 @@ button:hover {
         </div>
        
         <div class="sub-con">
-            <img class="act-pic" src="act-homepage-img/Python 1.png">
+            <img class="act-pic" src="static/img/Python 1.png">
             <h1 class="name-con">Course Description</h1>
             <h3 class="desc-con">Embark on a journey into the world of programming excellence with our Python Programming course. Whether you're a complete beginner or an experienced developer looking to add a powerful language to your repertoire, this course is designed to unlock the full potential of Python. Whether you aspire to be a web developer, data scientist, or automation expert, our Python Programming course equips you with the skills to excel in a variety of domains. Join us on this dynamic coding journey and harness the versatility of Python.</h3>
          </div></a>
@@ -277,7 +283,7 @@ button:hover {
             <h1 class="pend">Available Activities</h1>
             <hr>
 
-            <a href="quizpy.html"><div class="act-1">
+            <a href="{{ url_for('quizpy')}}"><div class="act-1">
    
                 <h1 class="acttitle">Activity 1 - Python for Beginners</h1>
                 <h3 class="ques">Questions: 10</h3>

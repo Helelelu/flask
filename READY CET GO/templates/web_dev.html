@@ -7,10 +7,9 @@
     <title>White Owl</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}"> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'act-html1.css')}}">
-    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'content.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,10 +69,10 @@
   border-radius: 8px;
 }
 
-/* h3 {
+h3 {
   font-size: 24px;
   color: #333;
-} */
+}
 
 .form-group {
   margin-bottom: 20px;
@@ -159,9 +158,9 @@ button:hover {
         <div class="profile" onclick="toggleDropdown()">
         <img src="static/img/RONALYN.png" alt="Profile Picture">
         <div class="dropdown">
-          <a href="../profile/profile.html">Profile</a>
-          <a href="../profile/edit.html">Edit Profile</a>
-          <a href="../profile/pass.html">Reset Password</a>
+          <a href="{{ url_for('profile')}}">Profile</a>
+          <a href="{{ url_for('edit')}}">Edit Profile</a>
+          <a href="{{ url_for('password')}}">Reset Password</a>
           <a href="#">Calendar</a>
           <a href="#" id="logoutLink">Logout</a>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -180,7 +179,7 @@ button:hover {
                     cancelButtonText: 'Cancel'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      window.location.href = "../log in- signup page/login.html";
+                      window.location.href = "{{ url_for('login')}}";
                     }
                   });
                 });
@@ -188,9 +187,9 @@ button:hover {
             </script>
         </div>
       </div>
-    </div> 
+    </div>
     <nav class="side-bar">
-      <a href="{{ url_for('home')}}">
+        <a href="{{ url_for('home')}}">
             <div class="sidebar-menu">
                 <img class="menu-icon" src="static/img/home.png">
             </div>
@@ -200,27 +199,30 @@ button:hover {
                 <img class="menu-icon" src="static/img/courses-catalog.png">
             </div>
         </a>
-        <div class="sidebar-menu">
+        <a href="{{ url_for('mycourses')}}">
+          <div class="sidebar-menu">
             <img class="menu-icon" src="static/img/my-courses.png">
-        </div>
+          </div>
+        </a>
 
-        <div class="sidebar-menu">
+        <a href="{{url_for('dashboard')}}">
+          <div class="sidebar-menu">
             <img class="menu-icon" src="static/img/dashboard.png">
-        </div>
+          </div>
+        </a>
+        
         <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
             <img class="menu-icon" src="static/img/activities.png">
         </div></a>
         <div class="sidebar-menu">
             <img class="menu-icon" src="static/img/sign-out.png">
         </div>
-        <a href="{{ url_for('help')}}">
-            <div class="sidebar-menu">
-                <img class="menu-icon" src="static/img/help.png">
-            </div>
-        </a>
+        <a href="{{ url_for('help')}}"><div class="sidebar-menu">
+            <img class="menu-icon" src="static/img/help.png">
+        </div></a>
     </nav>
     <nav class="sidebar-expand">
-      <a href="{{ url_for('home')}}">
+        <a href="{{ url_for('home')}}">
             <div class="exp-sidebar-menu">
                 <img class="menu-icon" src="static/img/home.png">
                 <h2 class="menu-text">Home</h2>
@@ -232,15 +234,19 @@ button:hover {
                 <h2 class="menu-text">Courses Catalog</h2>
             </div>
         </a>
-        <div class="exp-sidebar-menu">
+        <a href="{{ url_for('mycourses')}}">
+          <div class="exp-sidebar-menu">
             <img class="menu-icon" src="static/img/my-courses.png">
             <h2 class="menu-text">My Courses</h2>
-        </div>
-        <div class="exp-sidebar-menu">
+          </div>
+        </a>
+        <a href="{{ url_for('dashboard')}}">
+          <div class="exp-sidebar-menu">
             <img class="exp-menu-icon" src="static/img/dashboard.png">
             <h2 class="menu-text">Dashboard</h2>
-        </div>
-        <a href="{{ url_for('activities')}}">>
+          </div>
+        </a>
+        <a href="{{ url_for('activities')}}">
             <div class="exp-sidebar-menu">
                 <img class="menu-icon" src="static/img/activities.png">
                 <h2 class="menu-text">Activities</h2>
@@ -250,58 +256,140 @@ button:hover {
             <h2 class="menu-text">Sign Out</h2>
         </div>
         <a href="{{ url_for('help')}}">
-            <div class="exp-sidebar-menu">
-                <img class="exp-menu-icon" src="static/img/help.png">
-                <h2 class="menu-text">Help</h2>
-            </div>
+          <div class="exp-sidebar-menu">
+            <img class="exp-menu-icon" src="static/img/help.png">
+            <h2 class="menu-text">Help</h2>
+        </div>
         </a>
 
-    </nav>
-    <!--↓↓↓↓ADD NALANG NG DIV NG CONTENT SA BABA ↓↓↓↓↓-->
+    </nav>  
 
-    <div class="activities-container">
-       
-        <div class="ac-header">
-            <h1>ACTIVITY - Java For Beginners</h1>
-            <hr>
-        </div>
-       
-        <div class="sub-con">
-            <img class="act-pic" src="static/img/Java 1.png">
-            <h1 class="name-con">Course Description</h1>
-            <h3 class="desc-con">Embark on a Java journey that transcends the realms of software development with our comprehensive Java Mastery course. Whether you're new to programming or a seasoned developer aiming to master Java, this course is designed to equip you with the skills to build robust, scalable, and versatile applications. Whether you aspire to be a backend developer, enterprise architect, or mobile app creator, our Java Mastery course provides the comprehensive knowledge and skills needed to excel in diverse development scenarios. Join us on this transformative coding journey and elevate your Java proficiency.</h3>
-         </div></a>
+    <!-- CONTENT -->
 
-        <div class="act-con">
-            <h1 class="pend">Available Activities</h1>
-            <hr>
-
-              <a href="{{ url_for('quizjava')}}"></a><div class="act-1">
-   
-                <h1 class="acttitle">Activity 1 - Java for Beginners</h1>
-                <h3 class="ques">Questions: 10</h3>
-                <hr>
-            </div></a>
-            <div class="act-2">
-               
-                <h1 class="acttitle">Activity 2 - Basics of Java</h1>
-                <h3 class="ques">Questions: 10</h3>
-                <hr>
-               
-                <h1 class="acttitle">Activity 3 - Understanding Deeper</h1>
-                <h3 class="ques">Questions: 10</h3>
-                <hr>
-            </div>
-            
-
-
-        </div>
-
+    <div class="content-container">
+        <div class="content-box">
+            <h2>
+                Web Development
+            </h2>
     
+            <h3>
+                Dive into the world of web development with our curated modules. 
+                From basics to advanced techniques, our modules provide a streamlined learning path. 
+                Explore interactive content, stay current with industry trends, and elevate your skills.
+                 Start building your web development expertise today.
+                 <a class="learn-now-link" href="#learn-now">Learn Now</a>
+            </h3>
+        </div>
 
+        <div class="content-hover">
+            <a href="web-dev.html" class="hover-menu-item" id="menu1">
+                <img src="hover-icons/webdev-removebg-preview.png" alt="Icon 1">
+                <div>
+                    <span>Web</span><br>
+                    <span>Development</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/web-development.jpg" alt="Popup Image 1">
+                </div>
+            </a>
+        
+            <a href="app-dev.html" class="hover-menu-item" id="menu2">
+                <img src="hover-icons/mobdev-removebg-preview.png" alt="Icon 2">
+                <div>
+                    <span>App</span><br>
+                    <span>Development</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/mobapppppp.jpg" alt="Popup Image 2">
+                </div>
+            </a>
+        
+            <a href="database-management.html" class="hover-menu-item" id="menu3">
+                <img src="hover-icons/database-removebg-preview.png" alt="Icon 3">
+                <div>
+                    <span>Database</span><br>
+                    <span>Management</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/database_image.png" alt="Popup Image 3">
+                </div>
+            </a>
+        
+            <a href="networking-administration.html" class="hover-menu-item" id="menu4">
+                <img src="hover-icons/networking_and_administration-removebg-preview.png" alt="Icon 4">
+                <div>
+                    <span>Networking and</span><br>
+                    <span>Administration</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/Network.jpg" alt="Popup Image 4">
+                </div>
+            </a>
+        
+            <a href="cyber-security.html" class="hover-menu-item" id="menu5">
+                <img src="hover-icons/cyber_security-removebg-preview.png" alt="Icon 5">
+                <div>
+                    <span>Cyber</span><br>
+                    <span>Security</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/cyber-security-.jpeg" alt="Popup Image 5">
+                </div>
+            </a>
+        
+            <a href="project-management.html" class="hover-menu-item" id="menu6">
+                <img src="hover-icons/project_management-removebg-preview.png" alt="Icon 6">
+                <div>
+                    <span>Project</span><br>
+                    <span>Management</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/proj_management.jpg" alt="Popup Image 6">
+                </div>
+            </a>
+        
+            <a href="machine-learning.html" class="hover-menu-item" id="menu7">
+                <img src="hover-icons/machine_learning-removebg-preview.png" alt="Icon 7">
+                <div>
+                    <span>Machine</span><br>
+                    <span>Learning</span>
+                </div>
+                <div class="popup-image">
+                    <img src="hover-icons/ai_machine_image.jpg" alt="Popup Image 7">
+                </div>
+            </a>
+        </div>
+        
+        <style>
+    body {
+    background-image: url('hover-icons/web-development.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+   
+    .content-container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 20px; 
+        box-sizing: border-box; 
+    }
+
+</style>
+
+        </div>
     </div>
-   
+
     
+
+
 </body>
 </html>
 <script> 

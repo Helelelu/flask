@@ -160,11 +160,11 @@ def app_dev():
     return render_template('app_dev.html')
 
 @app.route('/dashboard')
-def app_dev():
+def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/answer-forum')
-def app_dev():
+def answer-forum():
     return render_template('answer-forum.html')
 
 

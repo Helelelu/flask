@@ -163,8 +163,8 @@ def app_dev():
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/answer-forum')
-def answer-forum():
+@app.route('/answer_forum')
+def answer_forum():
     return render_template('answer-forum.html')
 
 

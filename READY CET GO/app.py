@@ -41,10 +41,6 @@ def coursedetail():
 def mycourses():
     return render_template('wala-pa.html')
 
-@app.route('/dashboard')
-def dashboard():
-    return render_template('wala-pa.html')
-
 @app.route('/profile')
 def profile():
     return render_template('profile.html')

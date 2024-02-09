@@ -117,3 +117,124 @@
         justify-content: center;
         text-align: center;
     }
+    .profile {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .profile img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 300px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        right: 0;
+        margin-top: 13em;
+        border-radius: 20px;
+    }
+
+    .profile:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown a {
+        color: #333;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {
+        background-color: #C35CA3;
+        color: white;
+        border-radius: 20px;
+    }
+
+    .edit-profile-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .image-upload {
+        margin-bottom: 20px;
+    }
+
+    .image-upload label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-size: 12px;
+    }
+
+    .image-upload input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 3em;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-size: 12px;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        border: none;
+        background-color: #ededed;
+        border-radius: 3em;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #B88CB1;
+        color: white;
+        width: 100%;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 3em;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #C35CA3;
+    }

@@ -4,18 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Frequently Asked Questions</title>
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/general.css">
-    <link rel="stylesheet" href="../styles/side-bar.css">
-    <link rel="stylesheet" href="../styles/sidebar-expand.css">
-    <link rel="stylesheet" href="faq.css">
+    <title>Privacy and Policy</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}"> 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'faq.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'PAP.css')}}"> 
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css')}}"> 
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,130 +19,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style type="text/css">
         .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-        .profile img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            cursor: pointer;
-        }
+    .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+    }
 
-        /* Dropdown Styles */
-        .dropdown {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 300px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            right: 0;
-            margin-top: 13em;
-            border-radius: 20px;
-        }
+    /* Dropdown Styles */
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 300px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+      margin-top: 13em;
+      border-radius: 20px;
+    }
 
-        .profile:hover .dropdown {
-            display: block;
-        }
+    .profile:hover .dropdown {
+      display: block;
+    }
 
-        .dropdown a {
-            color: #333;
-            padding: 12px;
-            text-decoration: none;
-            display: block;
-        }
+    .dropdown a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+    }
 
-        .dropdown a:hover {
-            background-color: #C35CA3;
-            color: white;
-            border-radius: 20px;
-        }
+    .dropdown a:hover {
+      background-color: #C35CA3;
+      color:white;
+      border-radius: 20px;
+    }
+    .edit-profile-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
 
-        .edit-profile-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+h3 {
+  font-size: 24px;
+  color: #333;
+}
 
-        h3 {
-            font-size: 24px;
-            color: #333;
-        }
+.form-group {
+  margin-bottom: 20px;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
 
-        .image-upload {
-            margin-bottom: 20px;
-        }
+/* Image Upload Styles */
+.image-upload {
+  margin-bottom: 20px;
+}
 
-        .image-upload label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 12px;
-        }
+.image-upload label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
 
-        .image-upload input {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 3em;
-            box-sizing: border-box;
-            margin-bottom: 15px;
-        }
+.image-upload input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 3em;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
 
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 20px;
-        }
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555;
-            font-size: 12px;
-        }
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 12px;
+}
 
-        input {
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            border: none;
-            background-color: #ededed;
-            border-radius: 3em;
-            box-sizing: border-box;
-        }
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  background-color: #ededed;
+  border-radius: 3em;
+  box-sizing: border-box;
+}
 
-        button {
-            background-color: #B88CB1;
-            color: white;
-            width: 100%;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 3em;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+button {
+  background-color: #B88CB1;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 3em;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-        button:hover {
-            background-color: #C35CA3;
-        }
+button:hover {
+  background-color: #C35CA3;
+}
 
     </style>
 </head>
-
 <body>
     <!--!!!!!!!!HEADER!!!!!!!!!-->
     <nav>
@@ -177,6 +172,9 @@
         </a>
     </nav>
 
+<!-- MAIN CONTENT-->
+
+<div class="main-content">
     <div class="button-container">
         <div class="back-btn" onclick="goBack()">
             <img src="static/img/back btn.png" alt="back-button">
@@ -185,58 +183,77 @@
             <img src="static/img/exit btn.png" alt="exit-button">
         </div>
     </div>
+    <h2 class="title">PRIVACY AND POLICY</h2>
+    <h3 class="date">Effective Date: November. 1, 2023</h3>
+</div>
 
-    <!-- MAIN CONTENT -->
+<div class="parent">
+    <div class="div1">
+        <p class="topic">1. Information We Collect</p><br>
 
-    <div class="main-content">
-        <h2 class="title">FREQUENTLY ASKED QUESTIONS</h2>
+       <p class="intro"> White Owl Corp's Educational Platform collects personal and non-personal information when you interact with our platform. The types of information we collect may include:</p><br>
+       <p> • Personal information, such as your name, email address, and any information you choose to provide when creating an account.</p><br>
+       <p> • Usage data, such as your IP address, browser type, and device information when you access our platform.</p><br>
+       <p> • Information provided voluntarily, such as content you post on our platform, comments, and other user-generated content.</p>
+    </div>
+    <div class="div2"> 
+        <p class="topic">2. How We Use Your <br>Information</p><br>
+    <p>We use the collected information for the following purposes:</p><br>
+    <p> • To provide and personalize the content and features of our educational platform.</p><br>
+    <p> • To communicate with you and respond to your inquiries or requests.</p><br>
+    <p> • To monitor and analyze usage patterns and improve our platform.</p><br>
+    <p> • To comply with legal obligations and enforce our Terms and Conditions.</p>
+    </div>
+    <div class="div3"> 
+        <p class="topic1">3. Sharing of Information</p><br>
+        <p class="content">We do not sell, trade, or rent your personal information to third parties. We may share non-personal or aggregated data with service providers, partners, or for research purposes.</p>
+    </div>
+    <div class="div4"> 
+        <p class="topic">4. Security Measures</p><br>
+        <p>We implement reasonable security measures to protect your data from unauthorized access, disclosure, alteration, or destruction. However, no method of data transmission over the internet or electronic storage is entirely secure, and we cannot guarantee absolute security.</p>
+    </div>
+    <div class="div5"> 
+        <p class="topic1">5. Cookies and Tracking Technologies</p><br>
+        <p class="content">We may use cookies and similar tracking technologies to collect information about your browsing and usage patterns. You can manage your preferences for cookies in your browser settings.</p>
+    </div>
+    <div class="div6"> 
+        <p class="topic">6. Links to Other Websites</p><br>
+        <p>
+            Our platform may contain links to external websites. We are not responsible for the privacy practices of these sites and recommend reviewing their individual privacy policies.</p>
+    </div>
+    <div class="div7"> 
+        <p class="topic1">7. Children's Privacy</p><br>
+        <p class="content">Our platform is intended for a general audience and is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
+    </div>
+    <div class="div8"> 
+        <p class="topic">8. Changes to the Privacy Policy</p><br>
+        <p>We reserve the right to update or modify this Privacy Policy at any time. You will be notified of any changes, and continued use of our platform implies acceptance of the revised policy.</p>
+    </div>
+    <div class="div9"> 
+        <p class="topic">9. Contact Us</p><br>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us at whiteowl@gmail.com.</p>
+    </div>
     </div>
 
-    <div class="parent">
+<script>
+    function goBack() {
+        // Implement the logic to go back
+        window.history.back();
+    }
 
-        <div class="parent">
-            <div class="div1">
-                <p class="topic">How do I access the discussions and interact with others on the platform?</p><br><br>
-                <p class="text">To engage in discussions and connect with peers, simply create an account on our platform and navigate to the designated discussion forums. You can start or participate in discussions right away.</p>
-            </div>
-
-            <div class="div2">
-                <p class="topic1">Do I need to pay for access to the platform's educational content?</p><br><br>
-                <p class="white">No, access to our educational content is free. We are committed to providing valuable resources for computer engineering students without any cost barriers.</p>
-            </div>
-
-            <div class="div3">
-                <p class="topic">What types of downloadable materials are available, and how can I access them?</p><br><br>
-                <p class="text">We offer a variety of downloadable modules and resources. To access them, browse our library, select the materials you need, and download them to your device for offline learning.</p>
-            </div>
-
-            <div class="div4">
-                <p class="topic1">How can I prepare for quizzes and activities on the platform?</p><br><br>
-                <p class="white">To prepare for quizzes and activities, we recommend exploring our informative content, participating in discussions, and utilizing the downloadable materials. These resources will help you build a solid foundation of knowledge.</p>
-            </div>
-        </div>
-
-
-        <script>
-            function goBack() {
-                // Implement the logic to go back
-                window.history.back();
-            }
-
-            function redirectToHome() {
-                // Implement the logic to redirect to the home page
-                window.location.href = "../intro page/index.html";
-            }
-        </script>
+    function redirectToHome() {
+        // Implement the logic to redirect to the home page
+        window.location.href = "{{ url_for('home')}}";
+    }
+</script>
 
 </body>
-
 </html>
-<script>
+<script> 
     const side_expand = document.querySelector('.sidebar-expand');
     const page_expand = document.querySelector('body');
     const side_disappear = document.querySelector('.side-bar');
-    document.querySelector('.menu-toggle').onclick = function() {
+    document.querySelector('.menu-toggle').onclick = function(){
         this.classList.toggle('active');
         side_expand.classList.toggle('active');
         page_expand.classList.toggle('active');

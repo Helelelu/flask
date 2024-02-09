@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Frequently Asked Questions</title>
     <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/general.css">  
-    <link rel="stylesheet" href="../styles/side-bar.css">  
+    <link rel="stylesheet" href="../styles/general.css">
+    <link rel="stylesheet" href="../styles/side-bar.css">
     <link rel="stylesheet" href="../styles/sidebar-expand.css">
-    <link rel="stylesheet" href="faq.css">  
+    <link rel="stylesheet" href="faq.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'general.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'faq.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,310 +24,219 @@
     <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style type="text/css">
         .profile {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    .profile img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-      cursor: pointer;
-    }
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
 
-    /* Dropdown Styles */
-    .dropdown {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 300px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 1;
-      right: 0;
-      margin-top: 13em;
-      border-radius: 20px;
-    }
+        /* Dropdown Styles */
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 300px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+            margin-top: 13em;
+            border-radius: 20px;
+        }
 
-    .profile:hover .dropdown {
-      display: block;
-    }
+        .profile:hover .dropdown {
+            display: block;
+        }
 
-    .dropdown a {
-      color: #333;
-      padding: 12px;
-      text-decoration: none;
-      display: block;
-    }
+        .dropdown a {
+            color: #333;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+        }
 
-    .dropdown a:hover {
-      background-color: #C35CA3;
-      color:white;
-      border-radius: 20px;
-    }
-    .edit-profile-container {
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
+        .dropdown a:hover {
+            background-color: #C35CA3;
+            color: white;
+            border-radius: 20px;
+        }
 
-h3 {
-  font-size: 24px;
-  color: #333;
-}
+        .edit-profile-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
 
-.form-group {
-  margin-bottom: 20px;
-}
+        h3 {
+            font-size: 24px;
+            color: #333;
+        }
 
-/* Add this to your existing CSS */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-/* Image Upload Styles */
-.image-upload {
-  margin-bottom: 20px;
-}
+        .image-upload {
+            margin-bottom: 20px;
+        }
 
-.image-upload label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-  font-size: 12px;
-}
+        .image-upload label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 12px;
+        }
 
-.image-upload input {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 3em;
-  box-sizing: border-box;
-  margin-bottom: 15px;
-}
+        .image-upload input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 3em;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
 
-/* Form Styles */
-.form-group {
-  margin-bottom: 20px;
-}
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: #555;
-  font-size: 12px;
-}
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 12px;
+        }
 
-input {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  background-color: #ededed;
-  border-radius: 3em;
-  box-sizing: border-box;
-}
+        input {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            background-color: #ededed;
+            border-radius: 3em;
+            box-sizing: border-box;
+        }
 
-button {
-  background-color: #B88CB1;
-  color: white;
-  width: 100%;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 3em;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+        button {
+            background-color: #B88CB1;
+            color: white;
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 3em;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-button:hover {
-  background-color: #C35CA3;
-}
+        button:hover {
+            background-color: #C35CA3;
+        }
 
     </style>
 </head>
+
 <body>
-    <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
-    <div class="header">
-      <div class="left-section">
-          <i class="ri-menu-line menu-toggle" ></i>
-      </div>
-      <div class="middle-section">
-          <img class="header-logo" src="static/img/wo-logo.png">
-          <h1 class="header-text" >READY</h1>
-          <h1 class="span-header">CET</h1>
-          <h1 class="header-text">GO</h1>
-      </div>
-      <div class="profile" onclick="toggleDropdown()">
-        <img src="static/img/RONALYN.png" alt="Profile Picture">
-        <div class="dropdown">
-          <a href="{{ url_for('profile')}}">Profile</a>
-          <a href="{{ url_for('edit')}}">Edit Profile</a>
-          <a href="{{ url_for('password')}}">Reset Password</a>
-        <a href="#">Calendar</a>
-        <a href="#" id="logoutLink">Logout</a>
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-          <script>
-            document.addEventListener("DOMContentLoaded", function() {
-              const logoutLink = document.getElementById("logoutLink");
-
-              logoutLink.addEventListener("click", function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                
-                Swal.fire({
-                  title: 'Are you sure you want to logout?',
-                  icon: 'warning',
-                  showCancelButton: true,
-                  confirmButtonText: 'Yes, logout',
-                  cancelButtonText: 'Cancel'
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    window.location.href = "../log in- signup page/login.html";
-                  }
-                });
-              });
-            });
-          </script>
-      </div>
-    </div>
-  </div> 
-  <nav class="side-bar">
-    <a href="{{ url_for('home')}}">
-        <div class="sidebar-menu">
-            <img class="menu-icon" src="static/img/home.png">
+    <!--!!!!!!!!HEADER!!!!!!!!!-->
+    <nav>
+        <div class="logo-container">
+            <img src="static/img/wo-logo.png" alt="Your Logo">
         </div>
-    </a>
-    <a href="{{ url_for('courses')}}">
-        <div class="sidebar-menu">
-            <img class="menu-icon" src="static/img/courses-catalog.png">
+        <div class="sitename">
+            <span class="site-name">READY<span class="cet-highlight"> CET</span> GO!</span>
         </div>
-    </a>
-    <a href="{{ url_for('mycourses')}}">
-      <div class="sidebar-menu">
-        <img class="menu-icon" src="static/img/my-courses.png">
-      </div>
-    </a>
-
-    <a href="{{url_for('dashboard')}}">
-      <div class="sidebar-menu">
-        <img class="menu-icon" src="static/img/dashboard.png">
-      </div>
-    </a>
-    
-    <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
-        <img class="menu-icon" src="static/img/activities.png">
-    </div></a>
-    <div class="sidebar-menu">
-        <img class="menu-icon" src="static/img/sign-out.png">
-    </div>
-    <a href="{{ url_for('help')}}"><div class="sidebar-menu">
-        <img class="menu-icon" src="static/img/help.png">
-    </div></a>
-</nav>
-<nav class="sidebar-expand">
-    <a href="{{ url_for('home')}}">
-        <div class="exp-sidebar-menu">
-            <img class="menu-icon" src="static/img/home.png">
-            <h2 class="menu-text">Home</h2>
+        <div class="nav-container">
+            <a href="{{ url_for('home')}}">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">About</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('history')}}">History</a>
+                    <a href="{{ url_for('what_we_do')}}">What We Do</a>
+                    <a href="{{ url_for('creators')}}">Creators</a>
+                </div>
+            </div>
+            <a href="{{ url_for('contact')}}">Contact</a>
+            <a href="{{ url_for('faq')}}">FAQ</a>
+            <a href="{{ url_for('help')}}">Help</a>
         </div>
-    </a>
-    <a href="{{ url_for('courses')}}">
-        <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="static/img/courses-catalog.png">
-            <h2 class="menu-text">Courses Catalog</h2>
+        <button class="get-started-btn" onclick="redirectToGetStarted()">GET STARTED</button>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            &#9776;
+        </a>
+    </nav>
+
+    <div class="button-container">
+        <div class="back-btn" onclick="goBack()">
+            <img src="static/img/back btn.png" alt="back-button">
         </div>
-    </a>
-    <a href="{{ url_for('mycourses')}}">
-      <div class="exp-sidebar-menu">
-        <img class="menu-icon" src="static/img/my-courses.png">
-        <h2 class="menu-text">My Courses</h2>
-      </div>
-    </a>
-    <a href="{{ url_for('dashboard')}}">
-      <div class="exp-sidebar-menu">
-        <img class="exp-menu-icon" src="static/img/dashboard.png">
-        <h2 class="menu-text">Dashboard</h2>
-      </div>
-    </a>
-    <a href="{{ url_for('activities')}}">
-        <div class="exp-sidebar-menu">
-            <img class="menu-icon" src="static/img/activities.png">
-            <h2 class="menu-text">Activities</h2>
-        </div></a>
-    <div class="exp-sidebar-menu">
-        <img class="exp-menu-icon" src="static/img/sign-out.png">
-        <h2 class="menu-text">Sign Out</h2>
-    </div>
-    <a href="{{ url_for('help')}}">
-      <div class="exp-sidebar-menu">
-        <img class="exp-menu-icon" src="static/img/help.png">
-        <h2 class="menu-text">Help</h2>
-    </div>
-    </a>
-
-</nav>
-<div class="button-container">
-    <div class="back-btn" onclick="goBack()">
-        <img src="static/img/back btn.png" alt="back-button">
-    </div>
-    <div class="exit-btn" onclick="redirectToHome()">
-        <img src="static/img/exit btn.png" alt="exit-button">
-    </div>
-</div>
-
-<!-- MAIN CONTENT -->
-
-<div class="main-content">
-    <h2 class="title">FREQUENTLY ASKED QUESTIONS</h2>
-</div>
-
-<div class="parent">
-    
-<div class="parent">
-    <div class="div1">
-        <p class="topic">How do I access the discussions and interact with others on the platform?</p><br><br>
-        <p class="text">To engage in discussions and connect with peers, simply create an account on our platform and navigate to the designated discussion forums. You can start or participate in discussions right away.</p>
+        <div class="exit-btn" onclick="redirectToHome()">
+            <img src="static/img/exit btn.png" alt="exit-button">
+        </div>
     </div>
 
-    <div class="div2"> 
-        <p class="topic1">Do I need to pay for access to the platform's educational content?</p><br><br>
-        <p class="white">No, access to our educational content is free. We are committed to providing valuable resources for computer engineering students without any cost barriers.</p>
-    </div>
-    
-    <div class="div3"> 
-        <p class="topic">What types of downloadable materials are available, and how can I access them?</p><br><br>
-        <p class="text">We offer a variety of downloadable modules and resources. To access them, browse our library, select the materials you need, and download them to your device for offline learning.</p>
-    </div>
-    
-    <div class="div4">
-        <p class="topic1">How can I prepare for quizzes and activities on the platform?</p><br><br>
-        <p class="white">To prepare for quizzes and activities, we recommend exploring our informative content, participating in discussions, and utilizing the downloadable materials. These resources will help you build a solid foundation of knowledge.</p>
-    </div>
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+        <h2 class="title">FREQUENTLY ASKED QUESTIONS</h2>
     </div>
 
+    <div class="parent">
 
-<script>
-    function goBack() {
-        // Implement the logic to go back
-        window.history.back();
-    }
+        <div class="parent">
+            <div class="div1">
+                <p class="topic">How do I access the discussions and interact with others on the platform?</p><br><br>
+                <p class="text">To engage in discussions and connect with peers, simply create an account on our platform and navigate to the designated discussion forums. You can start or participate in discussions right away.</p>
+            </div>
 
-    function redirectToHome() {
-        // Implement the logic to redirect to the home page
-        window.location.href = "../intro page/index.html";
-    }
-</script>
+            <div class="div2">
+                <p class="topic1">Do I need to pay for access to the platform's educational content?</p><br><br>
+                <p class="white">No, access to our educational content is free. We are committed to providing valuable resources for computer engineering students without any cost barriers.</p>
+            </div>
+
+            <div class="div3">
+                <p class="topic">What types of downloadable materials are available, and how can I access them?</p><br><br>
+                <p class="text">We offer a variety of downloadable modules and resources. To access them, browse our library, select the materials you need, and download them to your device for offline learning.</p>
+            </div>
+
+            <div class="div4">
+                <p class="topic1">How can I prepare for quizzes and activities on the platform?</p><br><br>
+                <p class="white">To prepare for quizzes and activities, we recommend exploring our informative content, participating in discussions, and utilizing the downloadable materials. These resources will help you build a solid foundation of knowledge.</p>
+            </div>
+        </div>
+
+
+        <script>
+            function goBack() {
+                // Implement the logic to go back
+                window.history.back();
+            }
+
+            function redirectToHome() {
+                // Implement the logic to redirect to the home page
+                window.location.href = "../intro page/index.html";
+            }
+        </script>
 
 </body>
+
 </html>
-<script> 
+<script>
     const side_expand = document.querySelector('.sidebar-expand');
     const page_expand = document.querySelector('body');
     const side_disappear = document.querySelector('.side-bar');
-    document.querySelector('.menu-toggle').onclick = function(){
+    document.querySelector('.menu-toggle').onclick = function() {
         this.classList.toggle('active');
         side_expand.classList.toggle('active');
         page_expand.classList.toggle('active');

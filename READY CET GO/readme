@@ -1,10 +1,18 @@
 [Installation and runserver]
 1. install python if you haven't install yet
     1.1 go to your working dir 
-2. install flask
+
+2. install flask and dependencies
         pip install flask
-3. execute the command 
-        python app.py    
+        pip install flask-mysqldb
+
+3. setup database
+        import database to phpmyAdmin
+
+4. make sure to activate Apache and MySQL services in XAMPP 
+
+5. execute the command 
+        python app.py
         The application will be accessible at http://127.0.0.1:5000/ by default.
         Open your web browser and navigate to the above address.
 

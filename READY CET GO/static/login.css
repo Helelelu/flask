@@ -48,12 +48,12 @@ form {
 
 label {
   margin-left: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: white;
 }
 
 input {
-  margin-bottom: 50px;
+  margin-top: 20px;
   margin-left: 50px;
   width: 50%;
   outline: none;
@@ -183,4 +183,11 @@ footer {
   font-family: "Open Sans", sans-serif;
   text-align: center;
   margin-top: 10px;
+}
+.bottom{
+  margin-left: 50px;
+  margin-top: 20px;
+}
+.btn{
+  margin-top: 30px;
 }

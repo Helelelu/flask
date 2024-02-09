@@ -156,7 +156,7 @@ button:hover {
             <h1 class="header-text">GO</h1>
         </div>
         <div class="profile" onclick="toggleDropdown()">
-          <img src="static/img/RONALYN.png" alt="Profile Picture">
+          <img style="margin-top: 20px;" src="static/img/user-profile.png" alt="Profile Picture">
           <div class="dropdown">
             <a href="{{ url_for('profile')}}">Profile</a>
             <a href="{{ url_for('edit')}}">Edit Profile</a>
@@ -179,7 +179,7 @@ button:hover {
                     cancelButtonText: 'Cancel'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                      window.location.href = "../log in- signup page/login.html";
+                      window.location.href = "{{ url_for('logout') }}";
                     }
                   });
                 });
@@ -214,9 +214,11 @@ button:hover {
       <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
           <img class="menu-icon" src="static/img/activities.png">
       </div></a>
-      <div class="sidebar-menu">
+      
+      <a href="{{ url_for('logout') }}"><div class="sidebar-menu">
           <img class="menu-icon" src="static/img/sign-out.png">
-      </div>
+      </div></a>
+
       <a href="{{ url_for('help')}}"><div class="sidebar-menu">
           <img class="menu-icon" src="static/img/help.png">
       </div></a>
@@ -264,7 +266,16 @@ button:hover {
 
   </nav>
     <!-- CONTENT -->
-
+    <div
+    style="
+    margin-left: 30px;  
+    margin-top: 60px;
+    font-size: 40px;
+    font-family: 'Aldrich', sans-serif;
+    "
+     class="logged-in">	
+      Hello, <strong style="color: white;">{{session.name}}
+    </div>
     <div class="content-container">
         <div class="content-box">
             <h2>

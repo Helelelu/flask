@@ -47,8 +47,8 @@ form {
 }
 
 label {
+    margin: 10px;
     margin-left: 50px;
-    margin-bottom: 10px;
     color: white;
 }
 
@@ -199,4 +199,8 @@ footer {
     font-family: "Open Sans", sans-serif;
     text-align: center;
     margin-top: 10px;
+}
+.alert{
+    margin-left: 50px;
+    color: rgb(255, 188, 255);
 }

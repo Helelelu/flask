@@ -15,27 +15,29 @@
             <div class="left-panel">
                 <div class="left-card">
                     <h1 class="signup">Sign <span class="up"> Up </span></h1>
-                    <form>
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                
-                        <label for="mobile">Mobile Number</label>
-                        <input type="mobilenumber" id="number" name="number" required>
+                    <form action="{{ url_for('signup') }}" method="post">
+                    {% if message is defined and message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
 
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" name="name">
 
-                        <label for="password">Confirm Password</label>
-                        <input type="password" id="password" name="password" required>
-                
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">
+
+                        <label for="pwd">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" name="pswd">
+               
                         <button type="submit">
                             Submit
                             <img class="continue-btn" src="static/img/continue btn.png" alt="Icon description">
                         </button>
                     </form>
-                    <h3 class="login">Already have an account? <a href="#login" onclick="redirectToLogIn()">Log In here.</a></h3>
+                    <h3 class="login">Already have an account? <a href="{{url_for('login')}}" onclick="redirectToLogIn()">Log In here.</a></h3>
                 </div>
             </div>
+            
             <div class="right-panel">
                 <div class="right-card">
                     <h2 class="text-left-intro">WELCOME!</h2>
@@ -43,7 +45,7 @@
                         Computer Engineering today!</p>
                 </div>
                 <div class="logo-container">
-                    <img src="../img/logo1.png" alt="Logo">
+                    <img src="static/img/logo1.png" alt="Logo">
                 </div>
             </div>
         </div>

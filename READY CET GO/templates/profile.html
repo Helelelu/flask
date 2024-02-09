@@ -156,7 +156,7 @@ background-color: #C35CA3;
           <h1 class="header-text">GO</h1>
       </div>
       <div class="profile" onclick="toggleDropdown()">
-      <img src="static/img/RONALYN.png" alt="Profile Picture">
+        <img style="margin-top: 20px;" src="static/img/user-profile.png" alt="Profile Picture">
       <div class="dropdown">
         <a href="{{ url_for('profile')}}">Profile</a>
         <a href="{{ url_for('edit')}}">Edit Profile</a>
@@ -272,10 +272,11 @@ background-color: #C35CA3;
       <div class="panel">
           <div class="user-heading round">
                 <a href="#">
+
                     <img src="static/img/RONALYN.png" alt="">
                 </a>
-                <h1 id="userName">Ronalyn Maloloy-on</h1>
-                <p id="userEmail">ronalynmaloloyon0911@gmail.com</p>
+                <h1 id="userName">{{session.name}}</h1>
+                <p id="userEmail">{{session.email}}</p>
             </div>
 
             <script>
@@ -303,7 +304,7 @@ background-color: #C35CA3;
 
             <div class="textt">
               <h2 id="pro">Profile</h2>
-              <p>Greetings, I'm Ronalyn Maloloy-on, a Computer Engineer currently pursuing my academic journey at Polytechnic University of the Philippines. In the realm of technology, I delve into the intricacies of computer systems and engineering, seeking innovative solutions to real-world challenges.</p>
+              <p>Greetings, <strong>{{session.name}}</strong>, a Computer Engineer currently pursuing my academic journey at Polytechnic University of the Philippines. In the realm of technology, I delve into the intricacies of computer systems and engineering, seeking innovative solutions to real-world challenges.</p>
               <p> Beyond the circuits and code, I am passionate about harnessing the power of technology to create meaningful advancements and contribute to the ever-evolving landscape of computer engineering. Let's connect and explore the exciting possibilities that lie at the intersection of knowledge and innovation.</p>
             </div>
       </div>

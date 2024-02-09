@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}"> 
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'TAC.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,125 +145,33 @@ background-color: #C35CA3;
   </style>
 </head>
 <body>
-  <!--!!!!!!!!HEADER AND SIDEBAR!!!!!!!!!-->
-  <div class="header">
-      <div class="left-section">
-          <i class="ri-menu-line menu-toggle" ></i>
-      </div>
-      <div class="middle-section">
-          <img class="header-logo" src="static/img/wo-logo.png">
-          <h1 class="header-text" >READY</h1>
-          <h1 class="span-header">CET</h1>
-          <h1 class="header-text">GO</h1>
-      </div>
-      <div class="profile" onclick="toggleDropdown()">
-      <img src="static/img/RONALYN.png" alt="Profile Picture">
-      <div class="dropdown">
-        <a href="{{ url_for('profile')}}">Profile</a>
-        <a href="{{ url_for('edit')}}">Edit Profile</a>
-        <a href="{{ url_for('password')}}">Reset Password</a>
-        <a href="#">Calendar</a>
-        <a href="#" id="logoutLink">Logout</a>
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-          <script>
-            document.addEventListener("DOMContentLoaded", function() {
-              const logoutLink = document.getElementById("logoutLink");
-
-              logoutLink.addEventListener("click", function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                
-                Swal.fire({
-                  title: 'Are you sure you want to logout?',
-                  icon: 'warning',
-                  showCancelButton: true,
-                  confirmButtonText: 'Yes, logout',
-                  cancelButtonText: 'Cancel'
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    window.location.href = "{{ url_for('login')}}";
-                  }
-                });
-              });
-            });
-          </script>
-      </div>
-    </div>
-  </div>
-  <nav class="side-bar">
-      <a href="{{ url_for('home')}}">
-          <div class="sidebar-menu">
-              <img class="menu-icon" src="static/img/home.png">
-          </div>
-      </a>
-      <a href="{{ url_for('courses')}}">
-          <div class="sidebar-menu">
-              <img class="menu-icon" src="static/img/courses-catalog.png">
-          </div>
-      </a>
-      <a href="{{ url_for('mycourses')}}">
-        <div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/my-courses.png">
+    <!--!!!!!!!!HEADER!!!!!!!!!-->
+    <nav>
+        <div class="logo-container">
+            <img src="static/img/wo-logo.png" alt="Your Logo">
         </div>
-      </a>
-
-      <a href="{{url_for('dashboard')}}">
-        <div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/dashboard.png">
+        <div class="sitename">
+            <span class="site-name">READY<span class="cet-highlight"> CET</span> GO!</span>
         </div>
-      </a>
-      
-      <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/activities.png">
-      </div></a>
-      <div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/sign-out.png">
-      </div>
-      <a href="{{ url_for('help')}}"><div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/help.png">
-      </div></a>
-  </nav>
-  <nav class="sidebar-expand">
-      <a href="{{ url_for('home')}}">
-          <div class="exp-sidebar-menu">
-              <img class="menu-icon" src="static/img/home.png">
-              <h2 class="menu-text">Home</h2>
-          </div>
-      </a>
-      <a href="{{ url_for('courses')}}">
-          <div class="exp-sidebar-menu">
-              <img class="exp-menu-icon" src="static/img/courses-catalog.png">
-              <h2 class="menu-text">Courses Catalog</h2>
-          </div>
-      </a>
-      <a href="{{ url_for('mycourses')}}">
-        <div class="exp-sidebar-menu">
-          <img class="menu-icon" src="static/img/my-courses.png">
-          <h2 class="menu-text">My Courses</h2>
+        <div class="nav-container">
+            <a href="{{ url_for('home')}}">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">About</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('history')}}">History</a>
+                    <a href="{{ url_for('what_we_do')}}">What We Do</a>
+                    <a href="{{ url_for('creators')}}">Creators</a>
+                </div>
+            </div>
+            <a href="{{ url_for('contact')}}">Contact</a>
+            <a href="{{ url_for('faq')}}">FAQ</a>
+            <a href="{{ url_for('help')}}">Help</a>
         </div>
-      </a>
-      <a href="{{ url_for('dashboard')}}">
-        <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="static/img/dashboard.png">
-          <h2 class="menu-text">Dashboard</h2>
-        </div>
-      </a>
-      <a href="{{ url_for('activities')}}">
-          <div class="exp-sidebar-menu">
-              <img class="menu-icon" src="static/img/activities.png">
-              <h2 class="menu-text">Activities</h2>
-          </div></a>
-      <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="static/img/sign-out.png">
-          <h2 class="menu-text">Sign Out</h2>
-      </div>
-      <a href="{{ url_for('help')}}">
-        <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="static/img/help.png">
-          <h2 class="menu-text">Help</h2>
-      </div>
-      </a>
-
-  </nav>
+        <button class="get-started-btn" onclick="redirectToGetStarted()">GET STARTED</button>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            &#9776;
+        </a>
+    </nav>
 
 <!-- MAIN CONTENT -->
 

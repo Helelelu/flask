@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'login.css')}}">
     <link rel="stylesheet" href="https://icons8.com/">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <title>Login Page</title>
@@ -15,7 +15,7 @@
             <div class="left-panel">
                 <div class="left-card">
                     <h1 class="login">Log <span class="in"> In </span></h1>
-                    <form method="post" action="../php/login.php">
+                    <form>
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required>
                 
@@ -24,7 +24,7 @@
                 
                         <button type="submit">
                             CONTINUE
-                            <img class="continue-btn" src="../img/continue btn.png" alt="Icon description">
+                            <img class="header-logo" src="static/img/continue btn.png" alt="Icon description">
                         </button>
                     </form>
                 </div>
@@ -36,26 +36,26 @@
                         Computer Engineering today!</p>
                 </div>
                 <div class="logo-container">
-                    <img src="../img/logo1.png" alt="Logo">
+                    <img class="header-logo" src="static/img/logo1.png" alt="Logo">
                 </div>
             </div>
         </div>
 
 <footer>
     <div class="footer-container">
-        <a href="#home" onclick="redirectToHome()">Home</a>
-        <a href="#contact" onclick="redirectToContact()">Contact</a>
-        <a href="#faq" onclick="redirectToFAQ()">FAQ</a>
-        <a href="#help" onclick="redirectToHelp()">Help</a>
-        <a href="#terms" onclick="redirectToTermsandConditions()">Terms and Conditions</a>
-        <a href="#privacy" onclick="redirectToPrivacyandPolicy()">Privacy and Policy</a>
+        <a href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#help">Help</a>
+        <a href="#terms">Terms and Conditions</a>
+        <a href="#privacy">Privacy and Policy</a>
     </div>
     <div class="copyright">
         &copy; 2023 White Owl Corp. All rights reserved.
     </div>
 </footer>
 
-<script src="../script/script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

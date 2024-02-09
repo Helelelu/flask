@@ -210,11 +210,10 @@ button:hover {
         <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
             <img class="menu-icon" src="static/img/activities.png">
         </div></a>
-        
         <a href="{{ url_for('logout') }}"><div class="sidebar-menu">
           <img class="menu-icon" src="static/img/sign-out.png">
         </div></a>
-
+        
         <a href="{{ url_for('help')}}">
             <div class="sidebar-menu">
                 <img class="menu-icon" src="static/img/help.png">
@@ -247,10 +246,10 @@ button:hover {
                 <img class="menu-icon" src="static/img/activities.png">
                 <h2 class="menu-text">Activities</h2>
             </div></a>
-        <div class="exp-sidebar-menu">
-            <img class="exp-menu-icon" src="static/img/sign-out.png">
-            <h2 class="menu-text">Sign Out</h2>
-        </div>
+        <a href="{{ url_for('logout') }}"><div class="exp-sidebar-menu">
+              <img class="exp-menu-icon" src="static/img/sign-out.png">
+              <h2 class="menu-text">Sign Out</h2>
+        </div></a>
         <a href="{{ url_for('help')}}">
             <div class="exp-sidebar-menu">
                 <img class="exp-menu-icon" src="static/img/help.png">

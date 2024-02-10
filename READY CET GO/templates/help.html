@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'profile-general.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'help.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css')}}">
 
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -187,49 +189,43 @@
   padding: 20px;
 
 }
+
+
 </style>
 </head>
 <body>
-  <div class="header">
-    <div class="middle-section">
-        <img class="header-logo" src="static/img/wo-logo.png">
-        <h1 class="header-text" >READY</h1>
-        <h1 class="span-header">CET</h1>
-        <h1 class="header-text">GO</h1>
+  <nav>
+    <div class="site-logo">
+        <div class="logo-container">
+            <img src="static/img/logo1.png" alt="Your Logo">
+        </div>
+        <div class="sitename">
+            <span class="site-name">READY<span class="cet-highlight"> CET</span> GO!</span>
+        </div>
     </div>
-    <div class="profile" onclick="toggleDropdown()">
-      <img style="margin-top: 20px;" src="static/img/user-profile.png" alt="Profile Picture">
-      <div class="dropdown">
-        <a href="{{ url_for('profile')}}">Profile</a>
-        <a href="{{ url_for('edit')}}">Edit Profile</a>
-        <a href="{{ url_for('password')}}">Reset Password</a>
-      <a href="#">Calendar</a>
-      <a href="#" id="logoutLink">Logout</a>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-          document.addEventListener("DOMContentLoaded", function() {
-            const logoutLink = document.getElementById("logoutLink");
+    <div class="nav-container">
+        <a href="#home" onclick="redirectToHome()">Home</a>
+       
 
-            logoutLink.addEventListener("click", function(event) {
-              event.preventDefault(); // Prevent default link behavior
-              
-              Swal.fire({
-                title: 'Are you sure you want to logout?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, logout',
-                cancelButtonText: 'Cancel'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  window.location.href = "../log in- signup page/login.html";
-                }
-              });
-            });
-          });
-        </script>
+        <!--PLEASE FIX-->
+      <a>About</a>
+        <div class="dropdown">
+            <button class="dropbtn">About</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('history')}}">History</a>
+                <a href="{{ url_for('what_we_do')}}">What We Do</a>
+                <a href="{{ url_for('creators')}}">Creators</a>
+            </div>
+        </div>
+        <!-- <a href="#contact">Contact</a> -->
+        <a href="{{ url_for('faq')}}">FAQ</a>
+        <a href="{{ url_for('help')}}">Help</a>
+        <button class="get-started-btn"  onclick="redirectToGetStarted()">GET STARTED</button>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            &#9776;
+        </a>
     </div>
-  </div>
-</div> 
+</nav>
     
 <div class="search-container">
         <h3 id="h3-cont">What can we Help you with</h3>

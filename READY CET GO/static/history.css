@@ -87,3 +87,171 @@
     margin-top: 16px;
     margin-left: 200px;
   }
+
+
+/*Get started fix */
+.get-started-btn {
+    background-color: white;
+    color: purple;
+    border: 2px solid purple;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 10px;
+    font-family: 'Orbitron';
+    cursor: pointer;
+    text-align: center;
+    width: auto;
+    position: relative;
+}
+
+.get-started-btn:hover {
+    background-color: black;
+}
+
+.dropdown {
+    display:inline-block;
+    position: relative;
+}
+
+.dropbtn {
+    margin-left: 40px;
+    color: white;
+    padding: 1px 1px;
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    
+}
+
+.dropdown-content {
+    border-radius: 20px;
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    margin-left: 0%;
+    font-family: 'Orbitron';
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 2px solid black;
+    transition: color 0.3s;
+}
+
+.dropdown-content a:hover {
+    color: purple;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+* NNAVBAR STARTS HERE */
+
+nav {
+    overflow: hidden;
+    border-bottom: 2px solid #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+    padding: 0 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+nav a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 3px 10px;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    position: relative;
+    margin-left: 50px;
+}
+
+
+nav a:hover {
+    color: white;
+}
+
+nav a:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: purple;
+    border-radius: 10px;
+}
+
+.site-logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 100px;
+    
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+}
+
+.logo-container img {
+    max-height: 50px; 
+    margin-right: 10px;
+}
+
+.site-name {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: -100px;
+    font-family: 'Orbitron';
+}
+
+.cet-highlight {
+    color: purple; 
+    font-size: 30px;
+}
+
+.icon {
+    display: none;
+    cursor: pointer;
+}
+
+.get-started-btn {
+    background-color: white;
+    color: purple;
+    border: 2px solid purple;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 10px;
+    font-family: 'Orbitron';
+    cursor: pointer;
+    text-align: center;
+}
+
+.get-started-btn:hover {
+    background-color: black;
+}

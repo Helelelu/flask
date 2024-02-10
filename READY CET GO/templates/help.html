@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'side-bar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'sidebar-expand.css')}}">
 
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,9 +191,6 @@
 </head>
 <body>
   <div class="header">
-    <div class="left-section">
-        <i class="ri-menu-line menu-toggle" ></i>
-    </div>
     <div class="middle-section">
         <img class="header-logo" src="static/img/wo-logo.png">
         <h1 class="header-text" >READY</h1>
@@ -232,82 +230,6 @@
     </div>
   </div>
 </div> 
-<nav class="side-bar">
-  <a href="{{ url_for('home')}}">
-      <div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/home.png">
-      </div>
-  </a>
-  <a href="{{ url_for('courses')}}">
-      <div class="sidebar-menu">
-          <img class="menu-icon" src="static/img/courses-catalog.png">
-      </div>
-  </a>
-  <a href="{{ url_for('mycourses')}}">
-    <div class="sidebar-menu">
-      <img class="menu-icon" src="static/img/my-courses.png">
-    </div>
-  </a>
-
-  <a href="{{url_for('dashboard')}}">
-    <div class="sidebar-menu">
-      <img class="menu-icon" src="static/img/dashboard.png">
-    </div>
-  </a>
-  
-  <a href="{{ url_for('activities')}}"><div class="sidebar-menu">
-      <img class="menu-icon" src="static/img/activities.png">
-  </div></a>
-  <a href="{{ url_for('logout') }}"><div class="sidebar-menu">
-    <img class="menu-icon" src="static/img/sign-out.png">
-  </div></a>
-  <a href="{{ url_for('help')}}"><div class="sidebar-menu">
-      <img class="menu-icon" src="static/img/help.png">
-  </div></a>
-</nav>
-<nav class="sidebar-expand">
-  <a href="{{ url_for('home')}}">
-      <div class="exp-sidebar-menu">
-          <img class="menu-icon" src="static/img/home.png">
-          <h2 class="menu-text">Home</h2>
-      </div>
-  </a>
-  <a href="{{ url_for('courses')}}">
-      <div class="exp-sidebar-menu">
-          <img class="exp-menu-icon" src="static/img/courses-catalog.png">
-          <h2 class="menu-text">Courses Catalog</h2>
-      </div>
-  </a>
-  <a href="{{ url_for('mycourses')}}">
-    <div class="exp-sidebar-menu">
-      <img class="menu-icon" src="static/img/my-courses.png">
-      <h2 class="menu-text">My Courses</h2>
-    </div>
-  </a>
-  <a href="{{ url_for('dashboard')}}">
-    <div class="exp-sidebar-menu">
-      <img class="exp-menu-icon" src="static/img/dashboard.png">
-      <h2 class="menu-text">Dashboard</h2>
-    </div>
-  </a>
-  <a href="{{ url_for('activities')}}">
-      <div class="exp-sidebar-menu">
-          <img class="menu-icon" src="static/img/activities.png">
-          <h2 class="menu-text">Activities</h2>
-      </div></a>
-      <a href="{{ url_for('logout') }}"><div class="exp-sidebar-menu">
-        <img class="exp-menu-icon" src="static/img/sign-out.png">
-        <h2 class="menu-text">Sign Out</h2>
-    </div></a>
-  <a href="{{ url_for('help')}}">
-    <div class="exp-sidebar-menu">
-      <img class="exp-menu-icon" src="static/img/help.png">
-      <h2 class="menu-text">Help</h2>
-  </div>
-  </a>
-
-</nav>
-    
     
 <div class="search-container">
         <h3 id="h3-cont">What can we Help you with</h3>

@@ -51,7 +51,7 @@
 
 <footer>
     <div class="footer-container">
-        <a href="#home" onclick="redirectToHome()">Home</a>
+        <a href="/">Home</a>
         <!-- <a href="#contact">Contact</a> -->
         <a href="{{ url_for('faq')}}">FAQ</a>
         <a href="{{ url_for('help')}}">Help</a>
@@ -62,7 +62,23 @@
         &copy; 2023 White Owl Corp. All rights reserved.
     </div>
 </footer>
-<!-- <script src="static/js/script.js"></script> -->
+<script>
+    function myFunction() {
+        var x = document.querySelector("nav");
+        if (x.className === "") {
+            x.className = "responsive";
+        } 
+        
+        else {
+            x.className = "";
+        }
+    }
+
+    function redirectToGetStarted() {
+        // Redirect to the Get Started page
+        window.location.href = "{{ url_for('login')}}";
+    }
+</script>
 
 </body>
 </html>

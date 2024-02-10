@@ -30,7 +30,7 @@
                         </div>    
                         <button type="submit" class="btn btn-primary">
                             Login
-                            <img style="" class="header-logo" src="static/img/continue btn.png" alt="Icon description">
+                            <img class="header-logo" src="static/img/continue btn.png" alt="Icon description">
                         </button>
                         <p class="bottom">Dont't have an account?  <a class="bottom" href="{{url_for('signup')}}"> Register here</a></p>
                     </form>
@@ -50,12 +50,11 @@
 
 <footer>
     <div class="footer-container">
-        <a href="#home">Home</a>
-        <a href="#contact">Contact</a>
-        <a href="#faq">FAQ</a>
-        <a href="#help">Help</a>
-        <a href="#terms">Terms and Conditions</a>
-        <a href="#privacy">Privacy and Policy</a>
+        <a href='/'>Home</a>
+        <a href="{{ url_for('faq') }}">FAQ</a>
+        <a href="{{ url_for('help') }}">Help</a>
+        <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+        <a href="{{ url_for('pap') }}">Privacy and Policy</a>
     </div>
     <div class="copyright">
         &copy; 2023 White Owl Corp. All rights reserved.
